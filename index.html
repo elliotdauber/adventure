@@ -1,59 +1,65 @@
 <html>
-<body> 
-<div>
-	<canvas id="centerer" width="10" height="750" style="float:left"></canvas> 
-</div>
-<canvas id="gameCanvas" width="1400" height="750" style="float:left;margin-right:10px"></canvas>
 
-<!-- <script type="text/javascript" src = "js/loadingScreen.js"></script> -->
-<script type="text/javascript" src = "js/minimap.js"></script>
-<script type="text/javascript" src = "js/save.js"></script>
-<script type="text/javascript" src = "js/notifications.js"></script>
-<script type="text/javascript" src = "js/imageLoadingAdv.js"></script>
-<script type="text/javascript" src = "js/screenTabs.js"></script>
-<script type="text/javascript" src = "js/magicProjectile.js"></script>
-<script type="text/javascript" src = "js/Queue.js"></script>
-<script type="text/javascript" src = "js/coin.js"></script>
-<script type="text/javascript" src = "js/GlobalConstants.js"></script>
-<script type="text/javascript" src = "js/statsScreen.js"></script>
-<script type="text/javascript" src = "js/companion.js"></script>
-<script type="text/javascript" src = "js/levelMaker.js"></script>
-<script type="text/javascript" src = "js/shop.js"></script>
-<script type="text/javascript" src = "js/inventoryScreen.js"></script>
-<script type="text/javascript" src = "js/item.js"></script>
-<script type="text/javascript" src = "js/gem.js"></script>
-<script type="text/javascript" src = "js/questClass.js"></script>
-<script type="text/javascript" src = "js/soundAndMusic.js"></script>
-<script type="text/javascript" src = "js/audioAdv.js"></script>
-<script type="text/javascript" src = "js/chest.js"></script>
-<script type="text/javascript" src = "js/cameraPan.js"></script>
-<script type="text/javascript" src = "js/graphicsCommon.js"></script>
-<script type="text/javascript" src = "js/spells.js"></script>
-<script type="text/javascript" src = "js/auras.js"></script>
-<script type="text/javascript" src = "js/levelClass.js"></script>
-<script type="text/javascript" src = "js/settings.js"></script>
-<script type="text/javascript" src = "js/map.js"></script>
-<script type="text/javascript" src = "js/allLevels.js"></script>
-<script type="text/javascript" src = "js/areaClass.js"></script>
-<script type="text/javascript" src = "js/character.js"></script>
-<script type="text/javascript" src = "js/openingScreen.js"></script>
-<script type="text/javascript" src = "js/companion.js"></script>
-<script type="text/javascript" src = "js/boss.js"></script>
-<script type="text/javascript" src = "js/enemies.js"></script>
-<script type="text/javascript" src = "js/projectile.js"></script>
-<script type="text/javascript" src = "js/inputAdv.js"></script>
-<script type="text/javascript" src = "js/HUD.js"></script>
-<script type="text/javascript" src = "js/mainAdv.js"></script>
+<body>
+	<canvas id="gameCanvas" width="1400" height="750"></canvas>
+
+	<!-- <script type="text/javascript" src = "js/loadingScreen.js"></script> -->
+	<script type="text/javascript" src="js/minimap.js"></script>
+	<script type="text/javascript" src="js/save.js"></script>
+	<script type="text/javascript" src="js/notifications.js"></script>
+	<script type="text/javascript" src="js/imageLoadingAdv.js"></script>
+	<script type="text/javascript" src="js/screenTabs.js"></script>
+	<script type="text/javascript" src="js/magicProjectile.js"></script>
+	<script type="text/javascript" src="js/Queue.js"></script>
+	<script type="text/javascript" src="js/coin.js"></script>
+	<script type="text/javascript" src="js/GlobalConstants.js"></script>
+	<script type="text/javascript" src="js/statsScreen.js"></script>
+	<script type="text/javascript" src="js/companion.js"></script>
+	<script type="text/javascript" src="js/levelMaker.js"></script>
+	<script type="text/javascript" src="js/shop.js"></script>
+	<script type="text/javascript" src="js/inventoryScreen.js"></script>
+	<script type="text/javascript" src="js/item.js"></script>
+	<script type="text/javascript" src="js/gem.js"></script>
+	<script type="text/javascript" src="js/questClass.js"></script>
+	<script type="text/javascript" src="js/soundAndMusic.js"></script>
+	<script type="text/javascript" src="js/audioAdv.js"></script>
+	<script type="text/javascript" src="js/chest.js"></script>
+	<script type="text/javascript" src="js/cameraPan.js"></script>
+	<script type="text/javascript" src="js/graphicsCommon.js"></script>
+	<script type="text/javascript" src="js/spells.js"></script>
+	<script type="text/javascript" src="js/auras.js"></script>
+	<script type="text/javascript" src="js/levelClass.js"></script>
+	<script type="text/javascript" src="js/settings.js"></script>
+	<script type="text/javascript" src="js/map.js"></script>
+	<script type="text/javascript" src="js/allLevels.js"></script>
+	<script type="text/javascript" src="js/areaClass.js"></script>
+	<script type="text/javascript" src="js/character.js"></script>
+	<script type="text/javascript" src="js/openingScreen.js"></script>
+	<script type="text/javascript" src="js/companion.js"></script>
+	<script type="text/javascript" src="js/boss.js"></script>
+	<script type="text/javascript" src="js/enemies.js"></script>
+	<script type="text/javascript" src="js/projectile.js"></script>
+	<script type="text/javascript" src="js/inputAdv.js"></script>
+	<script type="text/javascript" src="js/HUD.js"></script>
+	<script type="text/javascript" src="js/mainAdv.js"></script>
 
 </body>
+
 </html>
 
 <style>
-body {
-	background-color: #565656;
-}
+	body {
+		background-color: #565656;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+	}
 
-canvas {
-	margin: 0px auto;
-}
+	canvas {
+		display: block;
+		border: 1px solid #333;
+	}
 </style>
