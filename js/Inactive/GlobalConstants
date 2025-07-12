@@ -1,0 +1,18 @@
+var GC = {
+	x: getCurrentCanvasValue();
+	y: function() {var something = getSomething(); return doSomethingElse();}(),
+	someConst: 34
+};
+
+this.x = GLOBAL.x;
+
+var MapMaker = {
+	someVar: 27,
+	makeMap: function(array) {
+		//do some stuff;
+		return 5 * this.someVar;
+	},
+	someOtherFunction: function doThat() {}
+};
+
+MapMaker.makeMap();
