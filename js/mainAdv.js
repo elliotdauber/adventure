@@ -17,17 +17,17 @@ var fps = 50;
 
 var randomArea; //no functionality yet
 
-var gameMode = "story";
+var gameMode = "random";
 
 var notification = null;
 
 var worker;
 
-window.onload = function() {
+window.onload = function () {
 	canvas = document.getElementById('gameCanvas');
 	// use these to set canvas width/height dynamically for other devices
-		// canvas.width = window.outerWidth - 20;
-		// canvas.height = window.outerHeight - 20;
+	// canvas.width = window.outerWidth - 20;
+	// canvas.height = window.outerHeight - 20;
 	ctx = canvas.getContext('2d');
 	ctx.font = "15px Georgia";
 
@@ -47,7 +47,7 @@ window.onload = function() {
 	//     headers: {
 	//       'Content-type': 'application/json',
 	//     },
-    // }).then(response => {
+	// }).then(response => {
 	//     if (response.ok) {
 	//       console.log(response.json())
 	//     }
@@ -104,14 +104,14 @@ function gameStartSetup() {
 function drawStaticLoadingScreen() {
 	console.log("drawing")
 	colorRect(0, 0, canvas.width, canvas.height, "black");
-	colorRect(10, 10, canvas.width-20, canvas.height-20, "#565656");
-	colorText("Loading...", canvas.width/2+20, 80, "#E0E0E0");
+	colorRect(10, 10, canvas.width - 20, canvas.height - 20, "#565656");
+	colorText("Loading...", canvas.width / 2 + 20, 80, "#E0E0E0");
 }
 
 function imageLoadingDoneStartGame() {
 	// stopWorker();
 	gameLoading = false;
-	setInterval(updateAll, 1000/fps);
+	setInterval(updateAll, 1000 / fps);
 	setupInput();
 	if (gameMode == "story") {
 		loadArea(area1);
@@ -139,7 +139,7 @@ function moveAll() {
 	cameraFollow();
 	if (levelLoading) return;
 	if (!gameStarted) return;
-	if (showingWinScreen) return; 
+	if (showingWinScreen) return;
 	if (showingLoseScreen) return;
 	if (selectedTab != null) return;
 	if (warrior.talkingToNPC) return;
@@ -166,7 +166,7 @@ function moveAll() {
 		warrior.handleIce();
 	} else if (!warrior.blocking) {
 		warrior.move();
-	} 
+	}
 }
 
 function drawAll() {
@@ -214,7 +214,7 @@ function drawAll() {
 	}
 	if (selectedTab != null) {
 		drawScreenTabs();
-	} 
+	}
 	drawHUD();
 }
 
@@ -229,7 +229,7 @@ function resetProjectilesAndEnemies() {
 	enemies = [];
 }
 
-function pauseGame() { 
+function pauseGame() {
 	ctx.globalAlpha = 0.05;
 	colorRect(0, 0, canvas.width, canvas.height, "#565656");
 	ctx.globalAlpha = 1.0;
@@ -240,8 +240,8 @@ function win() {
 	ctx.save();
 	ctx.translate(camPanX, camPanY);
 	colorRect(0, 0, canvas.width, canvas.height, "black");
-	colorText("You win!", canvas.width/2 - 20, canvas.height/2, "white");
-	colorText("Click to continue", canvas.width/2 - 17, canvas.height/2 + 10, "white");
+	colorText("You win!", canvas.width / 2 - 20, canvas.height / 2, "white");
+	colorText("Click to continue", canvas.width / 2 - 17, canvas.height / 2 + 10, "white");
 	ctx.restore();
 }
 
@@ -250,11 +250,11 @@ function lose() {
 	ctx.translate(camPanX, camPanY);
 	ctx.globalAlpha = 0.01;
 	colorRect(0, 0, canvas.width, canvas.height, "red");
-	colorCircle(canvas.width/2, canvas.height/2, 225, "black");
+	colorCircle(canvas.width / 2, canvas.height / 2, 225, "black");
 	ctx.globalAlpha = 1.0;
 	var lastFont = ctx.font;
 	ctx.font = "50px Georgia"
-	colorText("You lose :(", canvas.width/2 - 110, canvas.height/2-30, "white");
-	colorText("Click to continue", canvas.width/2 - 190, canvas.height/2 + 40, "white");
+	colorText("You lose :(", canvas.width / 2 - 110, canvas.height / 2 - 30, "white");
+	colorText("Click to continue", canvas.width / 2 - 190, canvas.height / 2 + 40, "white");
 	ctx.restore();
 }
