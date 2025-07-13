@@ -171,7 +171,7 @@ function showMap(array) {
 			if (curr.NPCArray.length) {
 				for (var j = 0; j < curr.NPCArray.length; j++) {
 					var currNPC = curr.NPCArray[j];
-					if (currNPC.quests[currNPC.currentQuestNum].checkPrerequisites()) {
+					if (currNPC.quests[currNPC.currentQuestNum]?.checkPrerequisites()) {
 						colorRectOutline(x, y, GC.MAP_LEVEL_W - GC.MAP_WALL_DIM, GC.MAP_LEVEL_H - GC.MAP_WALL_DIM, GC.MAP_WALL_DIM, "gold");
 						break;
 					}
