@@ -18,42 +18,42 @@ function Gem(name) {
 	this.effectFunctions = [];
 }
 
-Gem.prototype.setHealth = function(health) {
+Gem.prototype.setHealth = function (health) {
 	this.health = health;
 	return this;
 };
 
-Gem.prototype.setMana = function(mana) {
+Gem.prototype.setMana = function (mana) {
 	this.mana = mana;
 	return this;
 };
 
-Gem.prototype.setDamage = function(damage) {
+Gem.prototype.setDamage = function (damage) {
 	this.damage = damage;
 	return this;
 };
 
-Gem.prototype.setDefense = function(defense) {
+Gem.prototype.setDefense = function (defense) {
 	this.defense = defense;
 	return this;
 };
 
-Gem.prototype.setSpeed = function(speed) {
+Gem.prototype.setSpeed = function (speed) {
 	this.speed = speed;
 	return this;
 };
 
-Gem.prototype.setAttackRate = function(attackRate) {
+Gem.prototype.setAttackRate = function (attackRate) {
 	this.attackRate = attackRate;
 	return this;
 };
 
-Gem.prototype.setCost = function(cost) {
+Gem.prototype.setCost = function (cost) {
 	this.cost = cost;
 	return this;
 };
 
-Gem.prototype.setPic = function(pic) {
+Gem.prototype.setPic = function (pic) {
 	this.pic = {
 		"Brute": pic,
 		"Wizard": pic,
@@ -62,7 +62,7 @@ Gem.prototype.setPic = function(pic) {
 	return this;
 };
 
-Gem.prototype.addEffectFunction = function(effectFunction) {
+Gem.prototype.addEffectFunction = function (effectFunction) {
 	this.effectFunctions.push(effectFunction); //effectFunction refers to the class
 	return this;
 };

@@ -20,7 +20,7 @@ const KEY_R = 82; //eat grapes
 const KEY_Q = 81; //toggle minimap
 const KEY_E = 69; //action
 const KEY_SPACE = 32; //restart level
-const KEY_I = 73; 
+const KEY_I = 73;
 const KEY_O = 79;
 const KEY_M = 77; //quests
 const KEY_N = 78; //map
@@ -53,7 +53,7 @@ function handleMouseDown(evt) {
 		handleSliderInput(evt);
 	} else if (selectedTab == "stats") {
 		handleStatsScreenMousedown(evt);
-	} 
+	}
 }
 
 function handleMouseUp(evt) {
@@ -85,7 +85,7 @@ function handleMouseClick(evt) {
 	} else if (showingLoseScreen) {
 		showingLoseScreen = false;
 		reloadLevel(currentLevel);
-	} else if (!gameStarted) { 
+	} else if (!gameStarted) {
 		handleMouseClickOpeningScreen(evt);
 	} else if (gamePaused) {
 		handleSettingsClicks(mouseX, mouseY);
@@ -93,13 +93,13 @@ function handleMouseClick(evt) {
 		handleMapClicks(evt);
 	} else if (selectedTab == "quests") {
 		handleQuestScreenClicks(evt);
-	} else if (selectedTab == "inventory"){
+	} else if (selectedTab == "inventory") {
 		handleMouseclickInventoryScreen(evt);
 	} else if (warrior.shopping) {
 		handleMouseclickShopScreen(evt);
 	} else if (selectedTab == null && !chestClicked && !gamePaused) {
 		warrior.attack(mouseX, mouseY)
-	} 
+	}
 }
 
 function updateMousePos(evt) {
@@ -118,13 +118,13 @@ function updateMousePos(evt) {
 		return;
 	}
 
-	if (mouseY > canvas.height - TRACK_H*3) {
+	if (mouseY > canvas.height - TRACK_H * 3) {
 		mouseOverHUD = true;
 	} else {
 		mouseOverHUD = false;
 	}
 
-	if (gameStarted && !gameLoading && mouseX <= GC.MINIMAP_X+GC.MINIMAP_W+15 && mouseY <= GC.MINIMAP_Y+GC.MINIMAP_H+15) {
+	if (gameStarted && !gameLoading && mouseX <= GC.MINIMAP_X + GC.MINIMAP_W + 15 && mouseY <= GC.MINIMAP_Y + GC.MINIMAP_H + 15) {
 		mouseOverMinimap = true;
 	} else {
 		mouseOverMinimap = false;
@@ -140,13 +140,13 @@ function updateMousePos(evt) {
 function keySet(keyEvent, char, setTo) {
 	if (keyEvent.keyCode == char.controlKeyLeft) {
 		char.keyHeld_West = setTo;
-	} 
+	}
 	if (keyEvent.keyCode == char.controlKeyRight) {
 		char.keyHeld_East = setTo;
-	} 
+	}
 	if (keyEvent.keyCode == char.controlKeyUp) {
 		char.keyHeld_North = setTo;
-	} 
+	}
 	if (keyEvent.keyCode == char.controlKeyDown) {
 		char.keyHeld_South = setTo;
 	}
@@ -175,7 +175,7 @@ function keyPressed(evt) {
 	}
 
 
-	console.log(evt.keyCode);
+	// console.log(evt.keyCode);
 	if (evt.keyCode == KEY_P) {
 		backgroundMusic.startOrStopMusic();
 	}
@@ -188,8 +188,8 @@ function keyPressed(evt) {
 	if (evt.keyCode == KEY_SPACE) {
 		//swap weapons
 		var temp = warrior.inventory[warrior.currInv]["weapon"];
-		warrior.inventory[warrior.currInv]["weapon"] =  warrior.inventory[(warrior.currInv+1)%2]["weapon"];
-		warrior.inventory[(warrior.currInv+1)%2]["weapon"] = temp;
+		warrior.inventory[warrior.currInv]["weapon"] = warrior.inventory[(warrior.currInv + 1) % 2]["weapon"];
+		warrior.inventory[(warrior.currInv + 1) % 2]["weapon"] = temp;
 	}
 
 	if (evt.keyCode == KEY_Q) {
@@ -283,8 +283,8 @@ function keyPressed(evt) {
 	if (evt.keyCode == KEY_E) { //make helper functions here!
 
 
-		var trackCol = Math.floor(warrior.x/TRACK_W);
-		var trackRow = Math.floor(warrior.y/TRACK_H);
+		var trackCol = Math.floor(warrior.x / TRACK_W);
+		var trackRow = Math.floor(warrior.y / TRACK_H);
 		var tileHere = returnTileType(trackCol, trackRow);
 		var index = getIndex(trackCol, trackRow);
 
@@ -301,12 +301,12 @@ function keyPressed(evt) {
 			}
 			var portalIndex = 0;
 			while (trackGrid[portalIndex] != PORTAL_IN || portalIndex == index) {
-				portalIndex ++;
+				portalIndex++;
 			}
 			var row = getRow(portalIndex);
 			var col = getCol(portalIndex);
-			warrior.x = col * TRACK_W + TRACK_W/2;
-			warrior.y = row * TRACK_H + TRACK_H/2;
+			warrior.x = col * TRACK_W + TRACK_W / 2;
+			warrior.y = row * TRACK_H + TRACK_H / 2;
 			return;
 		} else if (tileHere == GREEN_PORTAL_IN) {
 			if (!warrior.hasGreenPortalKey) {
@@ -315,12 +315,12 @@ function keyPressed(evt) {
 			}
 			var portalIndex = 0;
 			while (trackGrid[portalIndex] != GREEN_PORTAL_IN || portalIndex == index) {
-				portalIndex ++;
+				portalIndex++;
 			}
 			var row = getRow(portalIndex);
 			var col = getCol(portalIndex);
-			warrior.x = col * TRACK_W + TRACK_W/2;
-			warrior.y = row * TRACK_H + TRACK_H/2;
+			warrior.x = col * TRACK_W + TRACK_W / 2;
+			warrior.y = row * TRACK_H + TRACK_H / 2;
 			return;
 		}
 
@@ -366,7 +366,7 @@ function keyPressed(evt) {
 					return;
 				}
 			}
- 		} else if (warrior.talkingToNPC && (showingQuestIncomplete || showingOutOfQuests || showingQuestNotReady)) {
+		} else if (warrior.talkingToNPC && (showingQuestIncomplete || showingOutOfQuests || showingQuestNotReady)) {
 			warrior.talkingToNPC = false;
 			warrior.currentNPC = null;
 			showingQuestIncomplete = false;
@@ -397,7 +397,7 @@ function keyPressed(evt) {
 
 		if (!warrior.inChest) {
 			var chestCounter = 0;
-			for (var i = 0; i < TRACK_COLS*TRACK_ROWS; i++) {
+			for (var i = 0; i < TRACK_COLS * TRACK_ROWS; i++) {
 				if (trackGrid[i] == CHEST && isAdjacent(chests[chestCounter], warrior, 1)) {
 					warrior.currentChest = chests[chestCounter];
 					if (warrior.currentChest.isLocked && warrior.keys != 0) {
@@ -405,7 +405,7 @@ function keyPressed(evt) {
 						warrior.inChest = true;
 						outputCanvasStatus = "showingChest";
 						warrior.keys--;
-						warrior.currentChest.isLocked= false;
+						warrior.currentChest.isLocked = false;
 					} else if (!warrior.currentChest.isLocked) {
 						chestOpen.play();
 						warrior.inChest = true;
@@ -426,20 +426,20 @@ function keyPressed(evt) {
 		}
 		if (!warrior.shopping) {
 			var shopCounter = 0;
-			for (var i = 0; i < TRACK_COLS*TRACK_ROWS; i++) {
-				if ((trackGrid[i] == SHOP || trackGrid[i] == BLACKSMITH || trackGrid[i] == ARMORER || 
-				trackGrid[i] == GEMSMITH || trackGrid[i] == FARMER) && isAdjacent(shops[shopCounter], warrior, 1)) {
+			for (var i = 0; i < TRACK_COLS * TRACK_ROWS; i++) {
+				if ((trackGrid[i] == SHOP || trackGrid[i] == BLACKSMITH || trackGrid[i] == ARMORER ||
+					trackGrid[i] == GEMSMITH || trackGrid[i] == FARMER) && isAdjacent(shops[shopCounter], warrior, 1)) {
 					warrior.currentShop = shops[shopCounter];
 					warrior.shopping = true;
 					selectedTab = "shop";
 					walkingSound.pause();
 					return;
 				}
-				if (trackGrid[i] == SHOP || trackGrid[i] == BLACKSMITH || trackGrid[i] == ARMORER || 
-				trackGrid[i] == GEMSMITH || trackGrid[i] == FARMER) {
+				if (trackGrid[i] == SHOP || trackGrid[i] == BLACKSMITH || trackGrid[i] == ARMORER ||
+					trackGrid[i] == GEMSMITH || trackGrid[i] == FARMER) {
 					shopCounter++;
 				}
-			} 
+			}
 		} else if (selectedTab == "shop") {
 			warrior.shopping = false;
 			selectedTab = null;

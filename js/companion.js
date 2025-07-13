@@ -2,13 +2,13 @@ function Location(x, y) {
 	this.x = x;
 	this.y = y;
 
-	this.distanceFromPlayer = function() {
+	this.distanceFromPlayer = function () {
 		var dX = this.x - warrior.x;
 		var dY = this.y - warrior.y;
-		return Math.sqrt(dX*dX + dY*dY);
+		return Math.sqrt(dX * dX + dY * dY);
 	}
 
-	this.isCompletedMove = function(completed) {
+	this.isCompletedMove = function (completed) {
 		for (var i = 0; i < completed.length; i++) {
 			if (completed[i].x == this.x && completed[i].y == this.y) {
 				return true;
@@ -17,36 +17,36 @@ function Location(x, y) {
 		return false;
 	}
 
-	this.validMoves = function(stepLength, completed) {
+	this.validMoves = function (stepLength, completed) {
 		var validMoves = [];
-		var indexNorth = getIndexFromXY(this.x, this.y-stepLength);
-		var indexEast = getIndexFromXY(this.x+stepLength, this.y)
-		var indexSouth = getIndexFromXY(this.x, this.y+stepLength)
-		var indexWest = getIndexFromXY(this.x-stepLength, this.y)
+		var indexNorth = getIndexFromXY(this.x, this.y - stepLength);
+		var indexEast = getIndexFromXY(this.x + stepLength, this.y)
+		var indexSouth = getIndexFromXY(this.x, this.y + stepLength)
+		var indexWest = getIndexFromXY(this.x - stepLength, this.y)
 		if (trackGrid[indexNorth] == TRACK_ROAD) {
-			var north = new Location(this.x, this.y-stepLength);
+			var north = new Location(this.x, this.y - stepLength);
 			if (!this.isCompletedMove(completed)) {
 				validMoves.push(north);
 			}
 		}
 		if (trackGrid[indexEast] == TRACK_ROAD) {
-			var east = new Location(this.x+stepLength, this.y)
+			var east = new Location(this.x + stepLength, this.y)
 			if (!this.isCompletedMove(completed)) {
 				validMoves.push(east);
 			}
 		}
 		if (trackGrid[indexSouth] == TRACK_ROAD) {
-			var south = new Location(this.x, this.y+stepLength)
+			var south = new Location(this.x, this.y + stepLength)
 			if (!this.isCompletedMove(completed)) {
 				validMoves.push(south);
 			}
 		}
 		if (trackGrid[indexWest] == TRACK_ROAD) {
-			var west = new Location(this.x-stepLength, this.y)
+			var west = new Location(this.x - stepLength, this.y)
 			if (!this.isCompletedMove(completed)) {
 				validMoves.push(west);
 			}
-		} 
+		}
 		return validMoves;
 	}
 }
@@ -82,7 +82,7 @@ function companionClass(leader) {
 	this.burning = false;
 	this.burningDamage = 0; //just a default
 
-	this.reset = function() {
+	this.reset = function () {
 		// this.health = this.maxHealth;
 		// this.alive = true;
 		this.x = this.leader.x;
@@ -162,13 +162,13 @@ function companionClass(leader) {
 	// 	return false;
 	// }
 
-	this.move = function() {
+	this.move = function () {
 		if (this.burning) {
 			this.takeDamage(this.burningDamage);
 		}
 		var chanceToMove = 0.05; //default
 
-		if (!leader.keyHeld_North && !leader.keyHeld_East && !leader.keyHeld_South && !leader.keyHeld_West &&isAdjacent(this, leader, this.maxTilesFromLeader)) {
+		if (!leader.keyHeld_North && !leader.keyHeld_East && !leader.keyHeld_South && !leader.keyHeld_West && isAdjacent(this, leader, this.maxTilesFromLeader)) {
 			chanceToMove = 0.005;
 		}
 		if (this.moveStack != null) {
@@ -181,32 +181,32 @@ function companionClass(leader) {
 			return;
 		}
 		//console.log("comp moving");
-		if (Math.random() < chanceToMove) { 
+		if (Math.random() < chanceToMove) {
 			//console.log("random");
 			if (Math.random() > chanceToMove) {
-				this.gotoX = this.leader.x - Math.random()*this.maxTilesFromLeader*TRACK_W;
+				this.gotoX = this.leader.x - Math.random() * this.maxTilesFromLeader * TRACK_W;
 			} else {
-				this.gotoX = this.leader.x + Math.random()*this.maxTilesFromLeader*TRACK_W;
+				this.gotoX = this.leader.x + Math.random() * this.maxTilesFromLeader * TRACK_W;
 			}
 			if (Math.random() > chanceToMove) {
-				this.gotoY = this.leader.y - Math.random()*this.maxTilesFromLeader*TRACK_H;
+				this.gotoY = this.leader.y - Math.random() * this.maxTilesFromLeader * TRACK_H;
 			} else {
-				this.gotoY = this.leader.y + Math.random()*this.maxTilesFromLeader*TRACK_H;
+				this.gotoY = this.leader.y + Math.random() * this.maxTilesFromLeader * TRACK_H;
 			}
 			//console.log(this.gotoX +","+this.gotoY);
-		
-		} 
+
+		}
 
 		else {
 			var dX = this.gotoX - this.x;
 			var dY = this.gotoY - this.y;
 			//console.log(dX+":"+dY)
-			var distToGo = Math.sqrt(dX*dX + dY*dY);
+			var distToGo = Math.sqrt(dX * dX + dY * dY);
 			var moveX;
 			var moveY;
 			if (distToGo > 0) {
-				moveX = this.speed * dX/distToGo;
-				moveY = this.speed * dY/distToGo;
+				moveX = this.speed * dX / distToGo;
+				moveY = this.speed * dY / distToGo;
 			} else {
 				moveX = 0;
 				moveY = 0;
@@ -223,14 +223,14 @@ function companionClass(leader) {
 			}
 
 			if (newX < 0) {
-				newX = TRACK_W*1.5;
-			} else if (newX > TRACK_COLS*TRACK_W) {
-				newX = (TRACK_COLS-1.5)*TRACK_W;
+				newX = TRACK_W * 1.5;
+			} else if (newX > TRACK_COLS * TRACK_W) {
+				newX = (TRACK_COLS - 1.5) * TRACK_W;
 			}
 			if (newY < 0) {
-				newY = TRACK_H*1.5;
-			} else if (newY > TRACK_ROWS*TRACK_H) {
-				newY = (TRACK_ROWS-1.5)*TRACK_H;
+				newY = TRACK_H * 1.5;
+			} else if (newY > TRACK_ROWS * TRACK_H) {
+				newY = (TRACK_ROWS - 1.5) * TRACK_H;
 			}
 			var index = getIndexFromXY(newX, newY)
 			var tileKindHere = trackGrid[index];
@@ -238,7 +238,7 @@ function companionClass(leader) {
 				tileKindHere != SHOP) {
 				this.x = newX
 				this.y = newY;
-			} 
+			}
 
 			// else {
 			// 	this.moveStack = this.findPlayer();
@@ -246,30 +246,30 @@ function companionClass(leader) {
 		}
 	}
 
-	this.respawn = function() {
+	this.respawn = function () {
 		this.alive = true;
 		this.health = this.maxHealth;
 		this.reset();
 	}
 
-	this.takeDamage = function(damage) { 
+	this.takeDamage = function (damage) {
 		paused = true;
-		this.health -= (damage/this.defense)*(randomInt(8,12)*0.1);
-		setTimeout(function() {paused = false;}, 50);
+		this.health -= (damage / this.defense) * (randomInt(8, 12) * 0.1);
+		setTimeout(function () { paused = false; }, 50);
 		if (this.health <= 0) {
 			if (this.alive) {
 				strikeSound.play();
 			}
 			this.projectile = false;
 			this.alive = false;
-			setTimeout(function() {warrior.companion.respawn()}, this.respawnTime);
-			console.log("comp is: "+this.alive);
+			setTimeout(function () { warrior.companion.respawn() }, this.respawnTime);
+			console.log("comp is: " + this.alive);
 			//this.leader.companion = null;
-		} 
+		}
 	}
 
 
-	this.attack = function() {
+	this.attack = function () {
 		var companionProjectile;
 		if (this.alive && this.target != null && this.target.alive && !this.projectile && isAdjacent(this, this.target, this.attackDist) && this.canAttack) {
 			companionProjectile = new projectileClass(this);
@@ -278,65 +278,65 @@ function companionClass(leader) {
 			this.projectile = true;
 			this.canAttack = false;
 			var cooldown = this.attackRate;
-			setTimeout(function() {warrior.companion.canAttack = true;}, cooldown);
+			setTimeout(function () { warrior.companion.canAttack = true; }, cooldown);
 		}
 	}
 
-	this.draw = function() {
+	this.draw = function () {
 		if (this.alive) {
 			drawImageRotated(this.pic, this.x, this.y, 0);
 			if (isAdjacent(warrior, this, this.maxTilesFromLeader)) {
 				ctx.globalAlpha = 0.5;
-				colorRect(this.x-25, this.y-30, 50, 5, "#E0E0E0");
-				colorRect(this.x-25, this.y-30, 50*(this.health/this.maxHealth), 5, "green");
+				colorRect(this.x - 25, this.y - 30, 50, 5, "#E0E0E0");
+				colorRect(this.x - 25, this.y - 30, 50 * (this.health / this.maxHealth), 5, "green");
 				ctx.globalAlpha = 1.0;
 			}
 		}
 	}
 }
 
-companionClass.prototype.setSpeed = function(speed) {
+companionClass.prototype.setSpeed = function (speed) {
 	this.speed = speed;
 	return this;
 };
 
-companionClass.prototype.setAttackRate = function(attackRate) {
+companionClass.prototype.setAttackRate = function (attackRate) {
 	this.atackRate = attackRate;
 	return this;
 };
 
-companionClass.prototype.setAttackSpeed = function(attackSpeed) {
+companionClass.prototype.setAttackSpeed = function (attackSpeed) {
 	this.attackSpeed = attackSpeed;
 	return this;
 };
 
-companionClass.prototype.setDamage = function(damage) {
+companionClass.prototype.setDamage = function (damage) {
 	this.attackDamage = damage;
 	return this;
 };
 
-companionClass.prototype.setHealth = function(health) {
+companionClass.prototype.setHealth = function (health) {
 	this.maxHealth = health;
 	this.health = this.maxHealth;
 	return this;
 };
 
-companionClass.prototype.setDefense = function(defense) {
+companionClass.prototype.setDefense = function (defense) {
 	this.defense = defense;
 	return this;
 };
 
-companionClass.prototype.setPic = function(pic) {
+companionClass.prototype.setPic = function (pic) {
 	this.pic = pic;
 	return this;
 };
 
-companionClass.prototype.setDamagedPic = function(damagedPic) {
+companionClass.prototype.setDamagedPic = function (damagedPic) {
 	this.damagedPic = damagedPic;
 	return this;
 };
 
-companionClass.prototype.setProjectileColor = function(color) {
+companionClass.prototype.setProjectileColor = function (color) {
 	this.projectileColor = color;
 	return this;
 };

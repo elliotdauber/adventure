@@ -14,9 +14,9 @@ function areaNextObject() {
 	this.areas = [];
 }
 
-areaNextObject.prototype.addPair = function(trackCode, nextArea) {
-	this.trackCodes.push(trackCode); 
-	this.areas.push(nextArea); 
+areaNextObject.prototype.addPair = function (trackCode, nextArea) {
+	this.trackCodes.push(trackCode);
+	this.areas.push(nextArea);
 	return this;
 };
 
@@ -24,7 +24,7 @@ var area1;
 var area2 = new areaClass(area2Levels, area2Start, "area 2", null);
 
 var area1Next = new areaNextObject()
-					.addPair(TRACK_GOAL, area2);
+	.addPair(TRACK_GOAL, area2);
 
 function areaClass(levelArray, firstLevel, name, next) {
 	this.levelArray = levelArray;
@@ -42,7 +42,7 @@ function randomAreaClass(numLevels, NPCArray, questItemsArray, bossRoom) {
 	this.questItemsArray = questItemsArray;
 	this.bossRoom = bossRoom; //this will probably be some sort of array at some point
 
-	this.createLevels = function() {
+	this.createLevels = function () {
 		createPlayableRandomLevels(this.numLevels, this.bossRoom, this.NPCArray, this.questItemsArray);
 	}
 }

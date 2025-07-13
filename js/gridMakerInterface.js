@@ -38,18 +38,18 @@ var showingGrid = true;
 const NUM_THEMES = 4;
 
 function copyToClipboard(toCopy) {
-  const el = document.createElement('textarea');
-  el.value = toCopy;
-  el.setAttribute('readonly', '');
-  el.style.position = 'absolute';
-  el.style.left = '-9999px';
-  document.body.appendChild(el);
-  el.select();
-  document.execCommand('copy');
-  document.body.removeChild(el);
+	const el = document.createElement('textarea');
+	el.value = toCopy;
+	el.setAttribute('readonly', '');
+	el.style.position = 'absolute';
+	el.style.left = '-9999px';
+	document.body.appendChild(el);
+	el.select();
+	document.execCommand('copy');
+	document.body.removeChild(el);
 };
 
-window.onload = function() {
+window.onload = function () {
 	canvas = document.getElementById('gridCanvas');
 	ctx = canvas.getContext('2d');
 	ctx.font = "15px Georgia";
@@ -63,16 +63,16 @@ window.onload = function() {
 }
 
 function mouseInBounds(x, y, X, Y, WIDTH, HEIGHT) {
-	if (x > X && x < X+WIDTH && y > Y && y < Y+HEIGHT) {
+	if (x > X && x < X + WIDTH && y > Y && y < Y + HEIGHT) {
 		return true;
 	} else return false;
 }
 
 function handleMouseClick(evt) {
 
-	const GRID_BOX_W = Math.min(GRID_W/gridMakerCols, GRID_H/gridMakerRows);
+	const GRID_BOX_W = Math.min(GRID_W / gridMakerCols, GRID_H / gridMakerRows);
 	const GRID_BOX_H = GRID_BOX_W;
-	const GRID_SCALAR = GRID_BOX_W/PIC_DIM;
+	const GRID_SCALAR = GRID_BOX_W / PIC_DIM;
 
 	var rect = canvas.getBoundingClientRect();
 	var root = document.documentElement;
@@ -81,23 +81,23 @@ function handleMouseClick(evt) {
 	mouseY = evt.clientY - rect.top - root.scrollTop;
 
 	for (var i = 0; i < 25; i++) {
-		if (mouseInBounds(mouseX, mouseY, GRID_X+(i*PIC_DIM)-PIC_DIM/2, PIC_CHOICE_Y-PIC_DIM/2, PIC_DIM, PIC_DIM)) {
+		if (mouseInBounds(mouseX, mouseY, GRID_X + (i * PIC_DIM) - PIC_DIM / 2, PIC_CHOICE_Y - PIC_DIM / 2, PIC_DIM, PIC_DIM)) {
 			selectedPic = picChoicesArray[i];
-			console.log("clicked:"+i);
-			console.log("selected: "+selectedPic);
+			console.log("clicked:" + i);
+			console.log("selected: " + selectedPic);
 		}
 	}
 
 	if (mouseInBounds(mouseX, mouseY, GRID_X, GRID_Y, GRID_W, GRID_H)) {
-		var x = mouseX-GRID_X;
-		var y = mouseY-GRID_Y;
+		var x = mouseX - GRID_X;
+		var y = mouseY - GRID_Y;
 
-		var col = Math.floor(x/GRID_BOX_W);
-		var row = Math.floor(y/GRID_BOX_H);
+		var col = Math.floor(x / GRID_BOX_W);
+		var row = Math.floor(y / GRID_BOX_H);
 		var index = gridMakerCols * row + col;
 		selectedPic = gridMakerArray[index];
 		gridMakerArray[index] = TRACK_ROAD;
-		console.log("selected: "+selectedPic);
+		console.log("selected: " + selectedPic);
 	}
 }
 
@@ -116,9 +116,9 @@ function handleMousemove(evt) {
 }
 
 function handleMouseup(evt) {
-	const GRID_BOX_W = Math.min(GRID_W/gridMakerCols, GRID_H/gridMakerRows);
+	const GRID_BOX_W = Math.min(GRID_W / gridMakerCols, GRID_H / gridMakerRows);
 	const GRID_BOX_H = GRID_BOX_W;
-	const GRID_SCALAR = GRID_BOX_W/PIC_DIM;
+	const GRID_SCALAR = GRID_BOX_W / PIC_DIM;
 
 	var rect = canvas.getBoundingClientRect();
 	var root = document.documentElement;
@@ -130,7 +130,7 @@ function handleMouseup(evt) {
 		return;
 	}
 
-	if (!mouseInBounds(mouseX, mouseY, GRID_X, GRID_Y, GRID_BOX_W*gridMakerCols, GRID_BOX_H*gridMakerRows)) {
+	if (!mouseInBounds(mouseX, mouseY, GRID_X, GRID_Y, GRID_BOX_W * gridMakerCols, GRID_BOX_H * gridMakerRows)) {
 		console.log("out of bounds");
 		selectedPic = null;
 		return;
@@ -138,13 +138,13 @@ function handleMouseup(evt) {
 
 	console.log("in bounds");
 
-	var x = mouseX-GRID_X;
-	var y = mouseY-GRID_Y;
+	var x = mouseX - GRID_X;
+	var y = mouseY - GRID_Y;
 
-	var col = Math.floor(x/GRID_BOX_W);
-	var row = Math.floor(y/GRID_BOX_H);
+	var col = Math.floor(x / GRID_BOX_W);
+	var row = Math.floor(y / GRID_BOX_H);
 	var index = gridMakerCols * row + col;
-	console.log("INDEX: "+index);
+	console.log("INDEX: " + index);
 	gridMakerArray[index] = selectedPic;
 	selectedPic = null;
 }
@@ -156,17 +156,17 @@ function saveGrid(grid) {
 
 function createWallBorder() {
 	console.log("creating border");
-	for (var i = 0; i < gridMakerCols*gridMakerRows; i++) {
-		var row = Math.floor(i/gridMakerCols);
+	for (var i = 0; i < gridMakerCols * gridMakerRows; i++) {
+		var row = Math.floor(i / gridMakerCols);
 		var col = i % gridMakerCols;
-		if (row == 0 || row == gridMakerRows-1 || col == 0 || col == gridMakerCols-1) {
+		if (row == 0 || row == gridMakerRows - 1 || col == 0 || col == gridMakerCols - 1) {
 			gridMakerArray[i] = TRACK_WALL;
 		}
 	}
 }
 
 function makeEmptyGrid() {
-	gridMakerArray = new Array(gridMakerCols*gridMakerRows);
+	gridMakerArray = new Array(gridMakerCols * gridMakerRows);
 	for (var i = 0; i < gridMakerArray.length; i++) {
 		gridMakerArray[i] = 0;
 	}
@@ -187,22 +187,22 @@ function createRandomGrid() {
 }
 
 function keyPressed(evt) {
-	console.log(evt.keyCode);
+	// console.log(evt.keyCode);
 	if (evt.keyCode == KEY_LEFT_ARROW) {
 		if (showingStoredGrids) {
 			if (currStoredGrid == 0) {
-				currStoredGrid = storedGrids.length-1;
+				currStoredGrid = storedGrids.length - 1;
 			} else {
 				currStoredGrid--;
 			}
 		} else {
-			picsShift-=1;
+			picsShift -= 1;
 		}
 	} else if (evt.keyCode == KEY_RIGHT_ARROW) {
 		if (showingStoredGrids) {
 			currStoredGrid++;
 		} else {
-			picsShift+=1;
+			picsShift += 1;
 		}
 	} else if (evt.keyCode == KEY_I) {
 		createWallBorder();
@@ -211,7 +211,7 @@ function keyPressed(evt) {
 	} else if (evt.keyCode == KEY_DELETE) {
 		makeEmptyGrid();
 	} else if (evt.keyCode == KEY_C) {
-		copyToClipboard("["+gridMakerArray+"]");
+		copyToClipboard("[" + gridMakerArray + "]");
 	} else if (evt.keyCode == KEY_SHIFT) {
 		showingGrid = !showingGrid;
 	} else if (evt.keyCode == KEY_P) {
@@ -219,16 +219,16 @@ function keyPressed(evt) {
 	} else if (evt.keyCode == KEY_S) {
 		showingStoredGrids = !showingStoredGrids;
 	} else if (evt.keyCode == KEY_ENTER && showingStoredGrids) {
-		gridMakerArray = storedGrids[currStoredGrid%storedGrids.length][1];
+		gridMakerArray = storedGrids[currStoredGrid % storedGrids.length][1];
 		showingStoredGrids = false;
 	} else if (evt.keyCode == KEY_NEXTTHEME) {
-		gridMakerTheme = (gridMakerTheme+1)%NUM_THEMES;
+		gridMakerTheme = (gridMakerTheme + 1) % NUM_THEMES;
 		console.log(gridMakerTheme);
 	} else if (evt.keyCode == KEY_LASTTHEME) {
 		if (gridMakerTheme == 0) {
-			gridMakerTheme = NUM_THEMES-1;
+			gridMakerTheme = NUM_THEMES - 1;
 		} else {
-			gridMakerTheme = (gridMakerTheme-1)%NUM_THEMES;
+			gridMakerTheme = (gridMakerTheme - 1) % NUM_THEMES;
 		}
 	}
 }
@@ -254,14 +254,14 @@ function getInputArray() {
 }
 
 function drawGridTiles(grid) {
-	const GRID_BOX_W = Math.min(GRID_W/gridMakerCols, GRID_H/gridMakerRows);
+	const GRID_BOX_W = Math.min(GRID_W / gridMakerCols, GRID_H / gridMakerRows);
 	const GRID_BOX_H = GRID_BOX_W;
-	const GRID_SCALAR = GRID_BOX_W/PIC_DIM;
+	const GRID_SCALAR = GRID_BOX_W / PIC_DIM;
 
 
 	var index = 0;
-	var drawTileX = GRID_X+GRID_BOX_W/2;
-	var drawTileY = GRID_Y+GRID_BOX_H/2;
+	var drawTileX = GRID_X + GRID_BOX_W / 2;
+	var drawTileY = GRID_Y + GRID_BOX_H / 2;
 	for (var row = 0; row < gridMakerRows; row++) {
 		for (var col = 0; col < gridMakerCols; col++) {
 			var tileKindHere = grid[index];
@@ -271,20 +271,20 @@ function drawGridTiles(grid) {
 			}
 			drawImageRotatedScaled(useImg, drawTileX, drawTileY, 0, GRID_SCALAR);
 			if (tileKindHere == NORTH || tileKindHere == SPAWN_NORTH) {
-				colorCircle(drawTileX, drawTileY, GRID_BOX_W/8, "blue");
-			} else if (tileKindHere == EAST ||tileKindHere == SPAWN_EAST) {
-				colorCircle(drawTileX, drawTileY, GRID_BOX_W/8, "red");
-			} else if (tileKindHere == SOUTH ||tileKindHere == SPAWN_SOUTH) {
-				colorCircle(drawTileX, drawTileY, GRID_BOX_W/8, "purple");
-			} else if (tileKindHere == WEST ||tileKindHere == SPAWN_WEST) {
-				colorCircle(drawTileX, drawTileY, GRID_BOX_W/8, "yellow");
+				colorCircle(drawTileX, drawTileY, GRID_BOX_W / 8, "blue");
+			} else if (tileKindHere == EAST || tileKindHere == SPAWN_EAST) {
+				colorCircle(drawTileX, drawTileY, GRID_BOX_W / 8, "red");
+			} else if (tileKindHere == SOUTH || tileKindHere == SPAWN_SOUTH) {
+				colorCircle(drawTileX, drawTileY, GRID_BOX_W / 8, "purple");
+			} else if (tileKindHere == WEST || tileKindHere == SPAWN_WEST) {
+				colorCircle(drawTileX, drawTileY, GRID_BOX_W / 8, "yellow");
 			}
 			//console.log(drawTileX, drawTileY);
 			drawTileX += GRID_BOX_W;
 			index++;
 		}
 		drawTileY += GRID_BOX_H;
-		drawTileX = GRID_X+GRID_BOX_W/2; //reset for next row
+		drawTileX = GRID_X + GRID_BOX_W / 2; //reset for next row
 	}
 }
 
@@ -294,26 +294,26 @@ function drawGrid() {
 		lineColor = "white";
 	} else if (gridMakerTheme >= 1) {
 		lineColor = "black";
-	} 
+	}
 
-	const GRID_BOX_W = Math.min(GRID_W/gridMakerCols, GRID_H/gridMakerRows);
+	const GRID_BOX_W = Math.min(GRID_W / gridMakerCols, GRID_H / gridMakerRows);
 	const GRID_BOX_H = GRID_BOX_W;
-	const GRID_SCALAR = GRID_BOX_W/50;
+	const GRID_SCALAR = GRID_BOX_W / 50;
 
-	for (var row = 0; row < gridMakerRows+1; row++) {
-		var y = GRID_Y+row*GRID_BOX_H;
-		colorRect(GRID_X, y, GRID_BOX_W*gridMakerCols, 1, lineColor);
+	for (var row = 0; row < gridMakerRows + 1; row++) {
+		var y = GRID_Y + row * GRID_BOX_H;
+		colorRect(GRID_X, y, GRID_BOX_W * gridMakerCols, 1, lineColor);
 	}
 	//console.log("cols:"+ gridMakerCols);
 	//console.log(typeof gridMakerCols);
-	for (var col = 0; col < gridMakerCols+1; col++) {
-		var x = GRID_X+col*GRID_BOX_W;
-		colorRect(x, GRID_Y, 1, GRID_BOX_H*gridMakerRows, lineColor);
+	for (var col = 0; col < gridMakerCols + 1; col++) {
+		var x = GRID_X + col * GRID_BOX_W;
+		colorRect(x, GRID_Y, 1, GRID_BOX_H * gridMakerRows, lineColor);
 	}
 }
 
 function drawControls() {
-	const CONTROLS_Y = canvas.height-25;
+	const CONTROLS_Y = canvas.height - 25;
 	if (showingStoredGrids) {
 		colorText("ENTER: load", 50, CONTROLS_Y, "black");
 		colorText("< / >: change theme", 150, CONTROLS_Y, "black");
@@ -334,21 +334,21 @@ function drawControls() {
 function drawTileChoices() {
 	picChoicesArray = [];
 	var pic = 0;
-	var i = picsShift%trackPics.length;
+	var i = picsShift % trackPics.length;
 	//console.log("pic choices");
 	while (pic < 25) {
 		if (trackPics[i]) {
 			picChoicesArray.push(i);
 			//console.log(i);
-			drawImageRotatedScaled(trackPics[i][gridMakerTheme], GRID_X+(pic*PIC_DIM), PIC_DIM, 0, 1);
+			drawImageRotatedScaled(trackPics[i][gridMakerTheme], GRID_X + (pic * PIC_DIM), PIC_DIM, 0, 1);
 			if (i == NORTH || i == SPAWN_NORTH) {
-				colorCircle(GRID_X+(pic*PIC_DIM), PIC_DIM, PIC_DIM/8, "blue");
+				colorCircle(GRID_X + (pic * PIC_DIM), PIC_DIM, PIC_DIM / 8, "blue");
 			} else if (i == EAST || i == SPAWN_EAST) {
-				colorCircle(GRID_X+(pic*PIC_DIM), PIC_DIM, PIC_DIM/8, "red");
+				colorCircle(GRID_X + (pic * PIC_DIM), PIC_DIM, PIC_DIM / 8, "red");
 			} else if (i == SOUTH || i == SPAWN_SOUTH) {
-				colorCircle(GRID_X+(pic*PIC_DIM), PIC_DIM, PIC_DIM/8, "purple");
+				colorCircle(GRID_X + (pic * PIC_DIM), PIC_DIM, PIC_DIM / 8, "purple");
 			} else if (i == WEST || i == SPAWN_WEST) {
-				colorCircle(GRID_X+(pic*PIC_DIM), PIC_DIM, PIC_DIM/8, "yellow");
+				colorCircle(GRID_X + (pic * PIC_DIM), PIC_DIM, PIC_DIM / 8, "yellow");
 			}
 			pic++
 		}
@@ -361,9 +361,9 @@ function viewStoredGrids() {
 		colorText("No stored grids", 20, 20, "black");
 		return
 	}
-	var currStoredGridModded = currStoredGrid%storedGrids.length;
-	var storedGridNum = currStoredGridModded+1;
-	colorText("Viewing grid "+storedGridNum, 20, 20, "black");
+	var currStoredGridModded = currStoredGrid % storedGrids.length;
+	var storedGridNum = currStoredGridModded + 1;
+	colorText("Viewing grid " + storedGridNum, 20, 20, "black");
 	colorText(storedGrids[currStoredGridModded][0], 20, 40, "black");
 	drawGridTiles(storedGrids[currStoredGridModded][1]);
 }

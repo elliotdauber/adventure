@@ -58,20 +58,20 @@ function drawScreenTabs() {
 		var lastFont = ctx.font;
 		ctx.font = "15px Georgia";
 		colorRect(GC.INV_TAB_X, GC.ALL_TABS_Y, GC.ALL_TABS_W, GC.ALL_TABS_H, invTabColor);
-		colorText("Inventory (V)", GC.INV_TAB_X+35, GC.ALL_TABS_Y+17, "#E0E0E0");
+		colorText("Inventory (V)", GC.INV_TAB_X + 35, GC.ALL_TABS_Y + 17, "#E0E0E0");
 
 		colorRect(GC.STATS_TAB_X, GC.ALL_TABS_Y, GC.ALL_TABS_W, GC.ALL_TABS_H, statsTabColor);
-		colorText("Stats (B)", GC.STATS_TAB_X+50, GC.ALL_TABS_Y+17, "#E0E0E0");
+		colorText("Stats (B)", GC.STATS_TAB_X + 50, GC.ALL_TABS_Y + 17, "#E0E0E0");
 
 		colorRect(GC.MAP_TAB_X, GC.ALL_TABS_Y, GC.ALL_TABS_W, GC.ALL_TABS_H, mapTabColor);
-		colorText("Map (N)", GC.MAP_TAB_X+50, GC.ALL_TABS_Y+17, "#E0E0E0");
+		colorText("Map (N)", GC.MAP_TAB_X + 50, GC.ALL_TABS_Y + 17, "#E0E0E0");
 
 		colorRect(GC.QUESTS_TAB_X, GC.ALL_TABS_Y, GC.ALL_TABS_W, GC.ALL_TABS_H, questsTabColor);
-		colorText("Quests (M)", GC.QUESTS_TAB_X+40, GC.ALL_TABS_Y+17, "#E0E0E0");
+		colorText("Quests (M)", GC.QUESTS_TAB_X + 40, GC.ALL_TABS_Y + 17, "#E0E0E0");
 
 		if (warrior.shopping) {
 			colorRect(GC.SHOP_TAB_X, GC.ALL_TABS_Y, GC.ALL_TABS_W, GC.ALL_TABS_H, shopTabColor);
-			colorText("Shop (E)", GC.SHOP_TAB_X+50, GC.ALL_TABS_Y+17, "#E0E0E0");
+			colorText("Shop (E)", GC.SHOP_TAB_X + 50, GC.ALL_TABS_Y + 17, "#E0E0E0");
 		}
 		ctx.font = lastFont;
 		ctx.restore();

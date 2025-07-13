@@ -15,62 +15,62 @@ function EffectFunction(name) {
 	this.icon;
 	this.chanceToBind = 1;
 
-	this.setAttackFunction = function(fn) {
+	this.setAttackFunction = function (fn) {
 		this.attackFunction = fn;
 		return this;
 	};
 
-	this.setDefenseFunction = function(fn) {
+	this.setDefenseFunction = function (fn) {
 		this.defenseFunction = fn;
 		return this;
 	};
 
-	this.setIcon = function(pic) {
+	this.setIcon = function (pic) {
 		this.icon = pic;
 		return this;
 	};
 
-	this.setDuration = function(duration) {
+	this.setDuration = function (duration) {
 		this.params[DURATION] = duration;
 		return this;
 	};
 
-	this.setDamage = function(damage) {
+	this.setDamage = function (damage) {
 		this.params[DAMAGE] = damage;
 		return this;
 	};
 
-	this.setDistance = function(distance) {
+	this.setDistance = function (distance) {
 		this.params[DISTANCE] = distance;
 		return this;
 	};
 
-	this.setSpeed = function(speed) {
+	this.setSpeed = function (speed) {
 		this.params[SPEED] = speed;
 		return this;
 	};
 
-	this.setPercent = function(percent) {
+	this.setPercent = function (percent) {
 		this.params[PERCENT] = percent;
 		return this;
 	};
 
-	this.setProbability = function(prob) {
+	this.setProbability = function (prob) {
 		this.params[PROBABILITY] = prob;
 		return this;
 	};
 
-	this.setBounces = function(bounces) {
+	this.setBounces = function (bounces) {
 		this.params[BOUNCES] = bounces;
 		return this;
 	};
 
-	this.setDPS = function(dps) {
+	this.setDPS = function (dps) {
 		this.params[DPS] = dps;
 		return this;
 	};
 
-	this.setChanceToBind = function(prob) {
+	this.setChanceToBind = function (prob) {
 		this.chanceToBind = prob;
 		return this;
 	}
@@ -78,44 +78,44 @@ function EffectFunction(name) {
 };
 
 var lifeStealEffect = new EffectFunction("Life Steal")
-							.setAttackFunction(lifeSteal)
-							.setIcon(lifeStealEffectIconPic);
+	.setAttackFunction(lifeSteal)
+	.setIcon(lifeStealEffectIconPic);
 
 var knockbackEffect = new EffectFunction("Knockback")
-							.setAttackFunction(knockback)
-							.setIcon(knockbackEffectIconPic);	
+	.setAttackFunction(knockback)
+	.setIcon(knockbackEffectIconPic);
 
 var freezeEffect = new EffectFunction("Freeze")
-							.setAttackFunction(freeze)
-							.setIcon(snowflakePic);		
+	.setAttackFunction(freeze)
+	.setIcon(snowflakePic);
 
 var burnEffect = new EffectFunction("Burn")
-							.setAttackFunction(burn)
-							.setIcon(burningEffectIconPic);
+	.setAttackFunction(burn)
+	.setIcon(burningEffectIconPic);
 
 var lightningChainEffect = new EffectFunction("Lightning Chain")
-							.setAttackFunction(lightningChain)
-							.setIcon(lightningBouncingPic);
+	.setAttackFunction(lightningChain)
+	.setIcon(lightningBouncingPic);
 
 var splashDamageEffect = new EffectFunction("Splash Damage")
-							.setAttackFunction(splashDamage)
-							.setIcon(lightningBouncingPic);
+	.setAttackFunction(splashDamage)
+	.setIcon(lightningBouncingPic);
 
 var speedIncreaseOnHitEffect = new EffectFunction("Run Away")
-							.setDefenseFunction(speedIncreaseOnHit)
-							.setIcon(speedDefenseEffectIconPic);	
+	.setDefenseFunction(speedIncreaseOnHit)
+	.setIcon(speedDefenseEffectIconPic);
 
 var reflectDamageEffect = new EffectFunction("Reflect Damage")
-							.setDefenseFunction(reflectDamage)
-							.setIcon(reflectDamageEffectIconPic);
+	.setDefenseFunction(reflectDamage)
+	.setIcon(reflectDamageEffectIconPic);
 
 var burnDefenseEffect = new EffectFunction("Burn Attacker")
-							.setDefenseFunction(burnDefense)
-							.setIcon(burningEffectIconPic);
+	.setDefenseFunction(burnDefense)
+	.setIcon(burningEffectIconPic);
 
 var knockbackDefenseEffect = new EffectFunction("Knockback Attacker")
-							.setDefenseFunction(knockbackDefense)
-							.setIcon(knockbackEffectIconPic);
+	.setDefenseFunction(knockbackDefense)
+	.setIcon(knockbackEffectIconPic);
 
 
 
@@ -182,7 +182,7 @@ function itemClass(name) {
 	this.timer;
 	this.countdown;
 
-	this.addGem = function(gem) {
+	this.addGem = function (gem) {
 		this.gems.push(gem);
 		this.gemsLength++;
 		warrior.maxHealth += gem.health;
@@ -196,7 +196,7 @@ function itemClass(name) {
 		warrior.setValuesFromInventory();
 	}
 
-	this.removeGem = function(gem, index) {
+	this.removeGem = function (gem, index) {
 		this.gems.splice(index, 1);
 		this.gemsLength--;
 		warrior.maxHealth -= gem.health;
@@ -211,7 +211,7 @@ function itemClass(name) {
 	}
 }
 
-itemClass.prototype.setType = function(type) {
+itemClass.prototype.setType = function (type) {
 	this.type = type;
 	if (type == "weapon") {
 		this.mainStat = "damage";
@@ -257,10 +257,10 @@ function lifeSteal(target, params) {
 	if (Math.random() > params[PROBABILITY]) {
 		return;
 	}
-	warrior.health += target.maxHealth * (params[PERCENT]/100);
+	warrior.health += target.maxHealth * (params[PERCENT] / 100);
 	if (warrior.health > warrior.maxHealth) {
 		warrior.health = warrior.maxHealth;
-	} 
+	}
 }
 
 function knockback(target, params) {
@@ -269,16 +269,16 @@ function knockback(target, params) {
 	}
 	var dX = target.x - warrior.x;
 	var dY = target.y - warrior.y;
-	var dist = Math.sqrt(dX*dX + dY*dY);
+	var dist = Math.sqrt(dX * dX + dY * dY);
 
 	target.gotoX = target.x;
 	target.gotoY = target.y;
 
 	//fix this with an Object.assign
 	while (params[DISTANCE] > 0) {
-		var moveX = params[SPEED] * dX/dist;
-		var moveY = params[SPEED] * dY/dist;
-		params[DISTANCE] -= Math.sqrt(moveX*moveX + moveY*moveY)
+		var moveX = params[SPEED] * dX / dist;
+		var moveY = params[SPEED] * dY / dist;
+		params[DISTANCE] -= Math.sqrt(moveX * moveX + moveY * moveY)
 
 		target.gotoX += moveX;
 		target.gotoY += moveY;
@@ -294,8 +294,10 @@ function freeze(target, params) {
 	target.frozen = true;
 	var index = target.enemiesArrayIndex;
 	var currLevel = currentLevel;
-	setTimeout(function() {if (currentLevel == currLevel) enemies[index].frozen = false;
-								   else currLevel.enemies[index].frozen = false;}, params[DURATION]);
+	setTimeout(function () {
+		if (currentLevel == currLevel) enemies[index].frozen = false;
+		else currLevel.enemies[index].frozen = false;
+	}, params[DURATION]);
 }
 
 function burn(target, params) {
@@ -303,11 +305,13 @@ function burn(target, params) {
 		return;
 	}
 	target.burning = true;
-	target.burningDamage = params[DPS]/fps;
+	target.burningDamage = params[DPS] / fps;
 	var index = target.enemiesArrayIndex;
 	var currLevel = currentLevel;
-	setTimeout(function() {if (currentLevel == currLevel) enemies[index].burning = false;
-								   else currLevel.enemies[index].burning = false;}, params[DURATION]);
+	setTimeout(function () {
+		if (currentLevel == currLevel) enemies[index].burning = false;
+		else currLevel.enemies[index].burning = false;
+	}, params[DURATION]);
 }
 
 function lightningChain(target, params) {
@@ -330,7 +334,7 @@ function splashDamage(target, params) {
 	}
 	for (var i = 0; i < enemies.length; i++) {
 		if (isAdjacentXY(target, enemies[i], params[DISTANCE], params[DISTANCE])) {
-			enemies[i].takeDamage(warrior.damage*params[PERCENT]*0.01);
+			enemies[i].takeDamage(warrior.damage * params[PERCENT] * 0.01);
 		}
 	}
 }
@@ -342,7 +346,7 @@ function reflectDamage(target, damageDealt, params) {
 	if (Math.random() > params[PROBABILITY] || !target) {
 		return;
 	}
-	var damage = damageDealt*(params[PERCENT]*0.01);
+	var damage = damageDealt * (params[PERCENT] * 0.01);
 	warrior.health += damage;
 	target.takeDamage(damage);
 }
@@ -352,7 +356,7 @@ function speedIncreaseOnHit(target, damageDealt, params) {
 		return;
 	}
 	warrior.speed += params[SPEED];
-	setTimeout(function() {warrior.speed -= increase.val}, params[DURATION]); //TODO: edge case if you die before the timeout ends, it will fuck up you speed
+	setTimeout(function () { warrior.speed -= increase.val }, params[DURATION]); //TODO: edge case if you die before the timeout ends, it will fuck up you speed
 }
 
 function burnDefense(target, damageDealt, params) {
@@ -361,11 +365,13 @@ function burnDefense(target, damageDealt, params) {
 		return;
 	}
 	target.burning = true;
-	target.burningDamage = params[DPS]/fps;
+	target.burningDamage = params[DPS] / fps;
 	var index = target.enemiesArrayIndex;
 	var currLevel = currentLevel;
-	setTimeout(function() {if (currentLevel == currLevel) enemies[index].burning = false;
-								   else currLevel.enemies[index].burning = false;}, params[DURATION]);
+	setTimeout(function () {
+		if (currentLevel == currLevel) enemies[index].burning = false;
+		else currLevel.enemies[index].burning = false;
+	}, params[DURATION]);
 }
 
 function knockbackDefense(target, damageDealt, params) {
@@ -374,15 +380,15 @@ function knockbackDefense(target, damageDealt, params) {
 	}
 	var dX = target.x - warrior.x;
 	var dY = target.y - warrior.y;
-	var dist = Math.sqrt(dX*dX + dY*dY);
+	var dist = Math.sqrt(dX * dX + dY * dY);
 
 	target.gotoX = target.x;
 	target.gotoY = target.y;
 
 	while (params[DISTANCE] > 0) {
-		var moveX = params[SPEED] * dX/dist;
-		var moveY = params[SPEED] * dY/dist;
-		params[DISTANCE] -= Math.sqrt(moveX*moveX + moveY*moveY)
+		var moveX = params[SPEED] * dX / dist;
+		var moveY = params[SPEED] * dY / dist;
+		params[DISTANCE] -= Math.sqrt(moveX * moveX + moveY * moveY)
 
 		target.gotoX += moveX;
 		target.gotoY += moveY;
@@ -391,69 +397,69 @@ function knockbackDefense(target, damageDealt, params) {
 	target.knockbackSpeed = params[SPEED];
 }
 
-itemClass.prototype.addEffectFunction = function(effectFunction) {
+itemClass.prototype.addEffectFunction = function (effectFunction) {
 	this.effectFunctions.push(effectFunction); //effectFunction refers to the class
 	return this;
 };
 
-itemClass.prototype.setDamage = function(damage) {
+itemClass.prototype.setDamage = function (damage) {
 	this.damage = damage;
 	return this;
 };
 
-itemClass.prototype.setDefense = function(defense) {
+itemClass.prototype.setDefense = function (defense) {
 	this.defense = defense;
 	return this;
 };
 
-itemClass.prototype.setSpeed = function(speed) {
+itemClass.prototype.setSpeed = function (speed) {
 	this.speed = speed;
 	return this;
 };
 
-itemClass.prototype.setAttackRate = function(attackRate) {
+itemClass.prototype.setAttackRate = function (attackRate) {
 	this.attackRate = attackRate;
 	return this;
 };
 
-itemClass.prototype.setNumGemSlots = function(num) {
+itemClass.prototype.setNumGemSlots = function (num) {
 	this.numGemSlots = num;
 	return this;
 };
 
-itemClass.prototype.setWeaponType = function(weaponType) {
+itemClass.prototype.setWeaponType = function (weaponType) {
 	this.weaponType = weaponType;
 	return this;
 };
 
-itemClass.prototype.setCost = function(cost) {
+itemClass.prototype.setCost = function (cost) {
 	this.cost = cost;
 	return this;
 };
 
-itemClass.prototype.setEffect = function(fn) {
-	this.effectFunction = fn; 
+itemClass.prototype.setEffect = function (fn) {
+	this.effectFunction = fn;
 	return this;
 };
 
-itemClass.prototype.setUseCondition = function(condition) {
-	this.useCondition = condition; 
+itemClass.prototype.setUseCondition = function (condition) {
+	this.useCondition = condition;
 	return this;
 };
 
-itemClass.prototype.setBagGraphics = function(bagOffsetX, bagOffsetY, bagScale) {
+itemClass.prototype.setBagGraphics = function (bagOffsetX, bagOffsetY, bagScale) {
 	this.bagOffsetX = bagOffsetX;
 	this.bagOffsetY = bagOffsetY;
 	this.bagScale = bagScale;
 	return this;
 };
 
-itemClass.prototype.setBagScale = function(bagScale) {
+itemClass.prototype.setBagScale = function (bagScale) {
 	this.bagScale = bagScale;
 	return this;
 };
 
-itemClass.prototype.setPic = function(bruteFilename, wizardFilename, nerdFilename) {
+itemClass.prototype.setPic = function (bruteFilename, wizardFilename, nerdFilename) {
 	if (this.type == "consumable") {
 		var image = document.createElement("img");
 		image.src = "images/" + bruteFilename;
@@ -491,19 +497,23 @@ function noUseCondition() {
 function appleEffect() {
 	appleBite.play();
 	var timeToHeal = 2000;
-	var totalHealthGain = randomInt(15, 20)*0.01*warrior.maxHealth;
-	var healthInterval = setInterval(function () {warrior.health+=totalHealthGain/100;
-												  if (warrior.health > warrior.maxHealth) warrior.health = warrior.maxHealth;}, 20);
-	var stopHealthgain = setTimeout(function() {clearInterval(healthInterval);}, timeToHeal);
+	var totalHealthGain = randomInt(15, 20) * 0.01 * warrior.maxHealth;
+	var healthInterval = setInterval(function () {
+		warrior.health += totalHealthGain / 100;
+		if (warrior.health > warrior.maxHealth) warrior.health = warrior.maxHealth;
+	}, 20);
+	var stopHealthgain = setTimeout(function () { clearInterval(healthInterval); }, timeToHeal);
 }
 
 function grapeEffect() {
 	appleBite.play(); //make grape sound?
 	var timeToHealMana = 2000;
-	var totalManaGain = randomInt(15, 20)*0.01*warrior.maxMana;
-	var manaInterval = setInterval(function () {warrior.mana+=totalManaGain/100;
-												  if (warrior.manah > warrior.maxMana) warrior.mana = warrior.maxMana;}, 20);
-	var stopManagain = setTimeout(function() {clearInterval(manaInterval);}, timeToHealMana);
+	var totalManaGain = randomInt(15, 20) * 0.01 * warrior.maxMana;
+	var manaInterval = setInterval(function () {
+		warrior.mana += totalManaGain / 100;
+		if (warrior.manah > warrior.maxMana) warrior.mana = warrior.maxMana;
+	}, 20);
+	var stopManagain = setTimeout(function () { clearInterval(manaInterval); }, timeToHealMana);
 }
 
 function grapeUseCondition() {
@@ -525,30 +535,34 @@ function cherriesEffect(curr) {
 		curr.powerupsIndex = numPowerups;
 		currentPowerups.push(curr);
 		numPowerups++;
-		curr.countdown = setInterval(function() {currentCherry.timeLeft-=500;}, 500);
-		curr.timer = setTimeout(function() {warrior.speed = currentCherry.storedStat; 
-							   currentPowerups.splice(currentCherry.powerupsIndex, 1);
-							   numPowerups--;
-							   clearInterval(currentCherry.countdown);
-							   currentCherry = null;}, effectLength);
+		curr.countdown = setInterval(function () { currentCherry.timeLeft -= 500; }, 500);
+		curr.timer = setTimeout(function () {
+			warrior.speed = currentCherry.storedStat;
+			currentPowerups.splice(currentCherry.powerupsIndex, 1);
+			numPowerups--;
+			clearInterval(currentCherry.countdown);
+			currentCherry = null;
+		}, effectLength);
 	} else {
 		clearTimeout(currentCherry.timer);
 		clearInterval(currentCherry.countdown);
 		currentCherry.timeLeft += effectLength;
 		currentCherry.maxTime += effectLength;
-		setInterval(function() {currentCherry.timeLeft-=500;}, 500);
-		currentCherry.timer = setTimeout(function() {warrior.speed = currentCherry.storedStat; 
-							   currentPowerups.splice(currentCherry.powerupsIndex, 1);
-							   numPowerups--;
-							   clearInterval(currentCherry.countdown);
-							   currentCherry = null;}, currentCherry.timeLeft);
+		setInterval(function () { currentCherry.timeLeft -= 500; }, 500);
+		currentCherry.timer = setTimeout(function () {
+			warrior.speed = currentCherry.storedStat;
+			currentPowerups.splice(currentCherry.powerupsIndex, 1);
+			numPowerups--;
+			clearInterval(currentCherry.countdown);
+			currentCherry = null;
+		}, currentCherry.timeLeft);
 	}
 }
 
 function pineappleEffect(curr) {
 	var effectLength = 10000;
 	if (currentPineapple == null) {
-		console.log("current pineapple: "+currentPineapple);
+		console.log("current pineapple: " + currentPineapple);
 		currentPineapple = curr;
 		curr.storedStat = warrior.defense;
 		warrior.defense *= 2;
@@ -557,23 +571,27 @@ function pineappleEffect(curr) {
 		curr.powerupsIndex = numPowerups;
 		currentPowerups.push(curr);
 		numPowerups++;
-		curr.countdown = setInterval(function() {currentPineapple.timeLeft-=500;}, 500);
-		curr.timer = setTimeout(function() {warrior.defense = currentPineapple.storedStat;
-							   currentPowerups.splice(currentPineapple.powerupsIndex, 1);
-							   numPowerups--;
-							   clearInterval(currentPineapple.countdown);
-							   currentPineapple = null;}, effectLength);
+		curr.countdown = setInterval(function () { currentPineapple.timeLeft -= 500; }, 500);
+		curr.timer = setTimeout(function () {
+			warrior.defense = currentPineapple.storedStat;
+			currentPowerups.splice(currentPineapple.powerupsIndex, 1);
+			numPowerups--;
+			clearInterval(currentPineapple.countdown);
+			currentPineapple = null;
+		}, effectLength);
 	} else {
 		clearTimeout(currentPineapple.timer);
 		clearInterval(currentPineapple.countdown);
 		currentPineapple.timeLeft += effectLength;
 		currentPineapple.maxTime += effectLength;
-		setInterval(function() {currentPineapple.timeLeft-=500;}, 500);
-		currentPineapple.timer = setTimeout(function() {warrior.defense = currentPineapple.storedStat; 
-							   currentPowerups.splice(currentPineapple.powerupsIndex, 1);
-							   numPowerups--;
-							   clearInterval(currentPineapple.countdown);
-							   currentPineapple = null;}, currentPineapple.timeLeft);
+		setInterval(function () { currentPineapple.timeLeft -= 500; }, 500);
+		currentPineapple.timer = setTimeout(function () {
+			warrior.defense = currentPineapple.storedStat;
+			currentPowerups.splice(currentPineapple.powerupsIndex, 1);
+			numPowerups--;
+			clearInterval(currentPineapple.countdown);
+			currentPineapple = null;
+		}, currentPineapple.timeLeft);
 	}
 }
 
@@ -588,23 +606,27 @@ function bananaEffect(curr) {
 		curr.powerupsIndex = numPowerups;
 		currentPowerups.push(curr);
 		numPowerups++;
-		curr.countdown = setInterval(function() {currentBanana.timeLeft-=500;}, 500);
-		curr.timer = setTimeout(function() {warrior.damage = currentBanana.storedStat;
-							   currentPowerups.splice(currentBanana.powerupsIndex, 1);
-							   numPowerups--;
-							   clearInterval(currentBanana.countdown);
-							   currentBanana = null;}, currentBanana.timeLeft);
+		curr.countdown = setInterval(function () { currentBanana.timeLeft -= 500; }, 500);
+		curr.timer = setTimeout(function () {
+			warrior.damage = currentBanana.storedStat;
+			currentPowerups.splice(currentBanana.powerupsIndex, 1);
+			numPowerups--;
+			clearInterval(currentBanana.countdown);
+			currentBanana = null;
+		}, currentBanana.timeLeft);
 	} else {
 		clearTimeout(currentBanana.timer);
 		clearInterval(currentBanana.countdown);
 		currentBanana.timeLeft += effectLength;
 		currentBanana.maxTime += effectLength;
-		setInterval(function() {currentBanana.timeLeft-=500;}, 500);
-		currentBanana.timer = setTimeout(function() {warrior.damage = currentBanana.storedStat; 
-							   currentPowerups.splice(currentBanana.powerupsIndex, 1);
-							   numPowerups--;
-							   clearInterval(currentBanana.countdown);
-							   currentBanana = null;}, currentBanana.timeLeft);
+		setInterval(function () { currentBanana.timeLeft -= 500; }, 500);
+		currentBanana.timer = setTimeout(function () {
+			warrior.damage = currentBanana.storedStat;
+			currentPowerups.splice(currentBanana.powerupsIndex, 1);
+			numPowerups--;
+			clearInterval(currentBanana.countdown);
+			currentBanana = null;
+		}, currentBanana.timeLeft);
 	}
 }
 
@@ -616,7 +638,7 @@ function createItemCopy(itemToCopy) {
 		item.effectFunctions[i] = Object.assign({}, item.effectFunctions[i]);
 		item.effectFunctions[i].params = item.effectFunctions[i].params.slice();
 	}
-	item.cost = randomInt(Math.ceil(7*item.cost/8), Math.ceil(9*item.cost/8))
+	item.cost = randomInt(Math.ceil(7 * item.cost / 8), Math.ceil(9 * item.cost / 8))
 
 	var effectsToRemove = [];
 	for (var i = 0; i < item.effectFunctions.length; i++) {
@@ -631,22 +653,22 @@ function createItemCopy(itemToCopy) {
 	}
 
 	for (var i = 0; i < newEffectFunctions.length; i++) {
-		item.cost = Math.ceil(item.cost*1.25);
+		item.cost = Math.ceil(item.cost * 1.25);
 		var params = newEffectFunctions[i].params;
 		for (var j = 0; j < params.length; j++) {
 			var currParam = params[j];
-			if (currParam) { 
+			if (currParam) {
 				var newVal
 				if (currParam < 1) {
-					newVal = Math.round(randomInt(75,125)*0.01*currParam*10);
+					newVal = Math.round(randomInt(75, 125) * 0.01 * currParam * 10);
 					newVal /= 10;
 				} else {
-					newVal = Math.round(randomInt(75,125)*0.01*currParam);
+					newVal = Math.round(randomInt(75, 125) * 0.01 * currParam);
 				}
 				params[j] = newVal;
 				if (j == PROBABILITY && params[PROBABILITY] > 1) {
 					params[PROBABILITY] = 1;
-				} 
+				}
 			}
 		}
 	}
@@ -771,7 +793,7 @@ allItems = [
 		.setSpeed(1)
 		.setAttackRate(-100)
 		.setCost(700)
-		.setNumGemSlots(2)	
+		.setNumGemSlots(2)
 		.addEffectFunction(createEffectCopy(lifeStealEffect).setPercent(5).setProbability(1))
 		.addEffectFunction(createEffectCopy(knockbackEffect).setDistance(75).setSpeed(10).setProbability(1))
 		.addEffectFunction(createEffectCopy(splashDamageEffect).setPercent(50).setDistance(50).setProbability(0.75))
@@ -861,7 +883,7 @@ allItems = [
 		.addEffectFunction(createEffectCopy(reflectDamageEffect).setPercent(100).setProbability(1))
 		.setPic("spikeyArmor.png"),
 
-	new itemClass("apple") 
+	new itemClass("apple")
 		.setType("consumable")
 		.setBagGraphics(2, 0, 2)
 		.setEffect(appleEffect)
@@ -869,29 +891,29 @@ allItems = [
 		.setCost(100)
 		.setPic("appleSmall.png"),
 
-	new itemClass("grapes") 
+	new itemClass("grapes")
 		.setType("consumable")
 		.setBagGraphics(2, 0, 2)
 		.setEffect(grapeEffect)
 		.setUseCondition(grapeUseCondition)
 		.setCost(100)
-		.setPic("grapesSmall.png"),	
+		.setPic("grapesSmall.png"),
 
-	new itemClass("cherries") 
+	new itemClass("cherries")
 		.setType("consumable")
 		.setEffect(cherriesEffect)
 		.setUseCondition(noUseCondition)
 		.setCost(200)
 		.setPic("cherries.png"),
 
-	new itemClass("pineapple") 
+	new itemClass("pineapple")
 		.setType("consumable")
 		.setEffect(pineappleEffect)
 		.setUseCondition(noUseCondition)
 		.setCost(300)
 		.setPic("pineapple.png"),
 
-	new itemClass("banana") 
+	new itemClass("banana")
 		.setType("consumable")
 		.setEffect(bananaEffect)
 		.setUseCondition(noUseCondition)

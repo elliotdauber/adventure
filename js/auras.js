@@ -13,7 +13,7 @@ function Aura(name) {
 	this.duration;
 	this.range; //tiles, not implemented yet
 	this.rank;
-	this.prerequisites = []; 
+	this.prerequisites = [];
 	this.rankUpFunction;
 	this.auraTreeX;
 	this.auraTreeY;
@@ -28,7 +28,7 @@ function Aura(name) {
 
 	this.effectFunctions = [];
 
-	this.begin = function(source) {
+	this.begin = function (source) {
 		if (source.mana < this.manaCost) {
 			return;
 		}
@@ -49,10 +49,10 @@ function Aura(name) {
 			var fn = this.intervalFunction;
 			this.interval = setInterval(fn, this.intervalTime);
 		}
-		setTimeout(function() {source.activeAura.end();}, this.duration);
+		setTimeout(function () { source.activeAura.end(); }, this.duration);
 	}
 
-	this.end = function() {
+	this.end = function () {
 		this.source.baseDamage -= this.damage;
 		this.source.baseDefense -= this.defense;
 		this.source.baseSpeed -= this.speed;
@@ -68,96 +68,96 @@ function Aura(name) {
 		this.source.activeAura = null;
 	}
 
-	this.draw = function() {
+	this.draw = function () {
 		this.angle += 0.01;
-		drawImageRotatedScaled(this.pic, this.source.x, this.source.y+25, this.angle, 1.5);
+		drawImageRotatedScaled(this.pic, this.source.x, this.source.y + 25, this.angle, 1.5);
 	}
 }
 
-Aura.prototype.setHealth = function(health) {
+Aura.prototype.setHealth = function (health) {
 	this.health = health;
 	return this;
 };
 
-Aura.prototype.setMana = function(mana) {
+Aura.prototype.setMana = function (mana) {
 	this.mana = mana;
 	return this;
 };
 
-Aura.prototype.setDamage = function(damage) {
+Aura.prototype.setDamage = function (damage) {
 	this.damage = damage;
 	return this;
 };
 
-Aura.prototype.setSpeed = function(speed) {
+Aura.prototype.setSpeed = function (speed) {
 	this.speed = speed;
 	return this;
 };
 
-Aura.prototype.setDefense = function(def) {
+Aura.prototype.setDefense = function (def) {
 	this.defense = def;
 	return this;
 };
 
-Aura.prototype.setAttackRate = function(attackRate) {
+Aura.prototype.setAttackRate = function (attackRate) {
 	this.attackRate = attackRate;
 	return this;
 };
 
-Aura.prototype.setRange = function(range) {
+Aura.prototype.setRange = function (range) {
 	this.range = range;
 	return this;
 };
 
-Aura.prototype.setDuration = function(duration) {
+Aura.prototype.setDuration = function (duration) {
 	this.duration = duration;
 	return this;
 };
 
-Aura.prototype.setPic = function(pic) {
+Aura.prototype.setPic = function (pic) {
 	this.pic = pic;
 	return this;
 };
 
-Aura.prototype.setDisplayPic = function(displayPic) {
+Aura.prototype.setDisplayPic = function (displayPic) {
 	this.displayPic = displayPic;
 	return this;
 };
 
-Aura.prototype.setRank = function(rank) {
+Aura.prototype.setRank = function (rank) {
 	this.rank = rank;
 	return this;
 };
 
-Aura.prototype.setManaCost = function(manaCost) {
+Aura.prototype.setManaCost = function (manaCost) {
 	this.manaCost = manaCost;
 	return this;
 };
 
-Aura.prototype.setAuraTreeXY = function(x, y) {
+Aura.prototype.setAuraTreeXY = function (x, y) {
 	this.auraTreeX = x;
 	this.auraTreeY = y;
 	return this;
 };
 
-Aura.prototype.setPrerequisites = function(prerequisites) {
+Aura.prototype.setPrerequisites = function (prerequisites) {
 	this.prerequisites = prerequisites;
 	return this;
 }
 
-Aura.prototype.setRankUpFunction = function(fn) {
+Aura.prototype.setRankUpFunction = function (fn) {
 	this.rankUpFunction = fn;
 	return this;
 }
 
-Aura.prototype.setIntervalData = function(fn, time) {
+Aura.prototype.setIntervalData = function (fn, time) {
 	this.hasInterval = true;
 	this.intervalFunction = fn;
 	this.intervalTime = time;
 	return this;
 }
 
-Aura.prototype.addEffectFunction = function(effectFunction) {
+Aura.prototype.addEffectFunction = function (effectFunction) {
 	this.effectFunctions.push(effectFunction); //effectFunction refers to the class
 	return this;
 };
@@ -197,51 +197,51 @@ function healthRegenInterval() {
 	if (warrior.health > warrior.maxHealth) {
 		warrior.health = warrior.maxHealth
 	}
-} 
+}
 
 var healthAura = new Aura("health")
-						.setRange(3) //not used yet
-						.setHealth(5)
-						.setRank(1)
-						.setPic(healthAuraPic)
-						.setDisplayPic(healthAuraDisplayPic)
-						.setManaCost(0.5)
-						.setDuration(10000)
-						.setRankUpFunction(rankUpHealth)
-						.setPrerequisites([]);
+	.setRange(3) //not used yet
+	.setHealth(5)
+	.setRank(1)
+	.setPic(healthAuraPic)
+	.setDisplayPic(healthAuraDisplayPic)
+	.setManaCost(0.5)
+	.setDuration(10000)
+	.setRankUpFunction(rankUpHealth)
+	.setPrerequisites([]);
 
 var healthRegenAura = new Aura("health regeneration")
-						.setRange(3) //not used yet
-						.setRank(0)
-						.setPic(healthRegenAuraPic)
-						.setDisplayPic(healthRegenAuraDisplayPic)
-						.setManaCost(3)
-						.setDuration(5000)
-						.setRankUpFunction(rankUpHealthRegen)
-						.setIntervalData(healthRegenInterval, 50)
-						.setPrerequisites([[healthAura, 1]]);
+	.setRange(3) //not used yet
+	.setRank(0)
+	.setPic(healthRegenAuraPic)
+	.setDisplayPic(healthRegenAuraDisplayPic)
+	.setManaCost(3)
+	.setDuration(5000)
+	.setRankUpFunction(rankUpHealthRegen)
+	.setIntervalData(healthRegenInterval, 50)
+	.setPrerequisites([[healthAura, 1]]);
 
 var defenseAura = new Aura("defense")
-						.setRange(3) //not used yet
-						.setDefense(1)
-						.setRank(1)
-						.setPic(defenseAuraPic)
-						.setDisplayPic(defenseAuraDisplayPic)
-						.setManaCost(5)
-						.setDuration(10000)
-						.setRankUpFunction(rankUpDefense)
-						.addEffectFunction(createEffectCopy(burnDefenseEffect).setDuration(5000).setDPS(0.5).setProbability(1))
-						.addEffectFunction(createEffectCopy(knockbackDefenseEffect).setDistance(20).setSpeed(8).setProbability(1))
-						.setPrerequisites([]);
+	.setRange(3) //not used yet
+	.setDefense(1)
+	.setRank(1)
+	.setPic(defenseAuraPic)
+	.setDisplayPic(defenseAuraDisplayPic)
+	.setManaCost(5)
+	.setDuration(10000)
+	.setRankUpFunction(rankUpDefense)
+	.addEffectFunction(createEffectCopy(burnDefenseEffect).setDuration(5000).setDPS(0.5).setProbability(1))
+	.addEffectFunction(createEffectCopy(knockbackDefenseEffect).setDistance(20).setSpeed(8).setProbability(1))
+	.setPrerequisites([]);
 
 var damageAura = new Aura("damage")
-						.setRange(3) //not used yet
-						.setDamage(1.5)
-						.setRank(1)
-						.setPic(damageAuraPic)
-						.setDisplayPic(damageAuraDisplayPic)
-						.setManaCost(5)
-						.setDuration(10000)
-						.setRankUpFunction(rankUpDamage)
-						.setPrerequisites([]);
+	.setRange(3) //not used yet
+	.setDamage(1.5)
+	.setRank(1)
+	.setPic(damageAuraPic)
+	.setDisplayPic(damageAuraDisplayPic)
+	.setManaCost(5)
+	.setDuration(10000)
+	.setRankUpFunction(rankUpDamage)
+	.setPrerequisites([]);
 

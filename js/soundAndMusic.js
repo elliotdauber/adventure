@@ -14,18 +14,18 @@ function setFormat() {
 function backgroundMusicClass() {
 	var musicSound = null;
 
-	this.loopSong = function(filename) {
+	this.loopSong = function (filename) {
 		setFormat();
 		if (musicSound != null) {
 			musicSound.pause();
 			musicSound = null;
 		}
-		musicSound = new Audio("music/"+filename+audioFormat);
+		musicSound = new Audio("music/" + filename + audioFormat);
 		musicSound.loop = true;
 		musicSound.play();
 	}
 
-	this.startOrStopMusic = function() {
+	this.startOrStopMusic = function () {
 		if (musicSound.paused) {
 			musicSound.play();
 		} else {
@@ -33,16 +33,16 @@ function backgroundMusicClass() {
 		}
 	}
 
-	this.setVolume = function(newVol) {
+	this.setVolume = function (newVol) {
 		musicSound.volume = newVol;
 	}
 
-	this.checkTimestamp = function() {
+	this.checkTimestamp = function () {
 		console.log(musicSound.currentTime);
 		return musicSound.currentTime;
 	}
 
-	this.pause = function() {
+	this.pause = function () {
 		musicSound.pause();
 	}
 }
@@ -50,8 +50,8 @@ function backgroundMusicClass() {
 function soundOverlapsClass(filename, vol, start) {
 
 	setFormat();
-	var mainSound = new Audio("sounds/"+filename+audioFormat);
-	var altSound = new Audio("sounds/"+filename+audioFormat);
+	var mainSound = new Audio("sounds/" + filename + audioFormat);
+	var altSound = new Audio("sounds/" + filename + audioFormat);
 	var altSoundTurn = false;
 	mainSound.volume = vol;
 	altSound.volume = vol;
@@ -59,7 +59,7 @@ function soundOverlapsClass(filename, vol, start) {
 	sounds.push(this);
 	this.startTime = start; //why doesn't this work???
 
-	this.play = function() {
+	this.play = function () {
 		if (altSoundTurn) {
 			altSound.currentTime = this.startTime;
 			altSound.play();
@@ -70,7 +70,7 @@ function soundOverlapsClass(filename, vol, start) {
 		altSoundTurn = !altSoundTurn;
 	}
 
-	this.setVolume = function(newVol) {
+	this.setVolume = function (newVol) {
 		mainSound.volume = newVol;
 		altSound.volume = newVol;
 	}

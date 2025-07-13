@@ -12,13 +12,13 @@ function Coin(source, value, pic) {
 	this.index = coins.size();
 	this.followingPlayer = false;
 
-	if (Math.random() > 0.5) this.endX = source.x + 30*Math.random()+15;
-	else this.endX = source.x - (20*Math.random()+15);
+	if (Math.random() > 0.5) this.endX = source.x + 30 * Math.random() + 15;
+	else this.endX = source.x - (20 * Math.random() + 15);
 
-	if (Math.random() > 0.5) this.endY = source.y + 30*Math.random()+15;
-	else this.endY = source.y - (20*Math.random()+15);
+	if (Math.random() > 0.5) this.endY = source.y + 30 * Math.random() + 15;
+	else this.endY = source.y - (20 * Math.random() + 15);
 
-	this.move = function() {
+	this.move = function () {
 		var speed = this.speed;
 		if ((!this.followingPlayer && isAdjacent(this, warrior, 1)) || (this.followingPlayer && isAdjacent(this, warrior, 5))) {
 			this.endX = warrior.x;
@@ -33,19 +33,19 @@ function Coin(source, value, pic) {
 
 		var dX = this.endX - this.x;
 		var dY = this.endY - this.y;
-		var distToGo = Math.sqrt(dX*dX + dY*dY);
+		var distToGo = Math.sqrt(dX * dX + dY * dY);
 		var moveX = 0;
 		var moveY = 0;
 		if (distToGo <= 4) {
 			return;
 		}
-		moveX = speed * dX/distToGo;
-		moveY = speed * dY/distToGo;
+		moveX = speed * dX / distToGo;
+		moveY = speed * dY / distToGo;
 		this.x += moveX;
 		this.y += moveY;
 	}
 
-	this.draw = function() {
+	this.draw = function () {
 		drawImageRotatedScaled(this.pic, this.x, this.y, 0, 1);
 	}
 }

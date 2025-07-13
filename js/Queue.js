@@ -3,8 +3,8 @@ function Queue() {
 	this.capacity = 10;
 	this.elements = new Array(this.capacity);
 
-	this.expand = function() {
-		var newElements = new Array(this.capacity*2);
+	this.expand = function () {
+		var newElements = new Array(this.capacity * 2);
 		for (var i = 0; i < this.elements.length; i++) {
 			newElements[i] = this.elements[i];
 		}
@@ -12,7 +12,7 @@ function Queue() {
 		this.capacity *= 2;
 	}
 
-	this.enqueue = function(elem) {
+	this.enqueue = function (elem) {
 		if (this.count == this.capacity) {
 			this.expand();
 		}
@@ -20,23 +20,23 @@ function Queue() {
 		this.count++;
 	}
 
-	this.dequeue = function() {
+	this.dequeue = function () {
 		var toReturn = this.elements[0];
 		for (var i = 1; i < this.elements.length; i++) {
-			this.elements[i-1] = this.elements[i];
+			this.elements[i - 1] = this.elements[i];
 		}
 		this.count--;
 		return toReturn;
 	}
 
-	this.peek = function() {
+	this.peek = function () {
 		if (this.count > 0) {
 			return this.elements[0];
 		}
 		return null;
 	}
 
-	this.isEmpty = function() {
+	this.isEmpty = function () {
 		return this.count == 0;
 	}
 }
@@ -46,8 +46,8 @@ function Vector() {
 	this.capacity = 10;
 	this.elements = new Array(this.capacity);
 
-	this.expand = function() {
-		var newElements = new Array(this.capacity*2);
+	this.expand = function () {
+		var newElements = new Array(this.capacity * 2);
 		for (var i = 0; i < this.elements.length; i++) {
 			newElements[i] = this.elements[i];
 		}
@@ -55,7 +55,7 @@ function Vector() {
 		this.capacity *= 2;
 	}
 
-	this.push = function(elem) {
+	this.push = function (elem) {
 		if (this.count == this.capacity) {
 			this.expand();
 		}
@@ -63,22 +63,22 @@ function Vector() {
 		this.count++;
 	}
 
-	this.remove = function(index, numToRemove) {
-		for (var i = index+numToRemove; i < this.count; i++) {
-			this.elements[i-numToRemove] = this.elements[i];
+	this.remove = function (index, numToRemove) {
+		for (var i = index + numToRemove; i < this.count; i++) {
+			this.elements[i - numToRemove] = this.elements[i];
 		}
 		this.count -= numToRemove;
 	}
 
-	this.getElemAtIndex = function(index) {
+	this.getElemAtIndex = function (index) {
 		return this.elements[index];
 	}
 
-	this.size = function() {
+	this.size = function () {
 		return this.count;
 	}
 
-	this.contains = function(elem) {
+	this.contains = function (elem) {
 		for (var i = 0; i < this.count; i++) {
 			if (this.elements[i] == elem) {
 				return true;
@@ -87,9 +87,9 @@ function Vector() {
 		return false;
 	}
 
-	this.clear = function() {
+	this.clear = function () {
 		this.count = 0;
-	} 
+	}
 }
 
 function Stack() {
@@ -97,8 +97,8 @@ function Stack() {
 	this.capacity = 10;
 	this.elements = new Array(this.capacity);
 
-	this.expand = function() {
-		var newElements = new Array(this.capacity*2);
+	this.expand = function () {
+		var newElements = new Array(this.capacity * 2);
 		for (var i = 0; i < this.elements.length; i++) {
 			newElements[i] = this.elements[i];
 		}
@@ -106,7 +106,7 @@ function Stack() {
 		this.capacity *= 2;
 	}
 
-	this.push = function(elem) {
+	this.push = function (elem) {
 		if (this.count == this.capacity) {
 			this.expand();
 		}
@@ -114,20 +114,20 @@ function Stack() {
 		this.count++;
 	}
 
-	this.pop = function() {
-		var toReturn =  this.elements[this.count-1];
+	this.pop = function () {
+		var toReturn = this.elements[this.count - 1];
 		this.count--;
 		return toReturn;
 	}
 
 	return validMoves; {
 		if (this.count > 0) {
-			return this.elements[this.count-1];
+			return this.elements[this.count - 1];
 		}
 		return null;
 	}
 
-	this.isEmpty = function() {
+	this.isEmpty = function () {
 		return this.count == 0;
 	}
 }
@@ -151,14 +151,14 @@ function runVectorTests() {
 	v.push(31);
 	console.log(v.getElemAtIndex(1));
 	console.log(v.elements);
-	console.log("SIZE: "+v.size());
+	console.log("SIZE: " + v.size());
 	v.remove(1, 1);
 	console.log(v.elements);
-	console.log("SIZE: "+v.size());
+	console.log("SIZE: " + v.size());
 	v.push(33);
 	console.log(v.elements);
-	console.log("SIZE: "+v.size());
+	console.log("SIZE: " + v.size());
 	v.remove(5, 8);
 	console.log(v.elements);
-	console.log("SIZE: "+v.size());
+	console.log("SIZE: " + v.size());
 }

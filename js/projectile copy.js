@@ -13,17 +13,17 @@ function magicClass(player) {
 	this.damage = source.attackDamage;
 
 
-	this.attack = function(player) {
+	this.attack = function (player) {
 		this.endX = player.x;
 		this.endY = player.y;
 	}
 
-	this.move = function() {
+	this.move = function () {
 		//console.log(this.x+ "," +this.y);
-		
+
 	}
 
-	this.draw = function(size) {
+	this.draw = function (size) {
 		colorCircle(this.x, this.y, size, "red");
 	}
 }

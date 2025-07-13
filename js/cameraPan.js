@@ -4,14 +4,14 @@ const DIST_FROM_CENTER_X = 50;
 const DIST_FROM_CENTER_Y = 50;
 
 function instantCamFollow() {
-	camPanX = warrior.x - canvas.width/2;
-	camPanY = warrior.y - canvas.height/2;
+	camPanX = warrior.x - canvas.width / 2;
+	camPanY = warrior.y - canvas.height / 2;
 }
 
 function cameraFollow() {
 	//console.log("following");
-	var cameraFocusCenterX = camPanX + canvas.width/2;
-	var cameraFocusCenterY = camPanY + canvas.height/2;
+	var cameraFocusCenterX = camPanX + canvas.width / 2;
+	var cameraFocusCenterY = camPanY + canvas.height / 2;
 
 	var distFromCameraFocusX = Math.abs(warrior.x - cameraFocusCenterX);
 	var distFromCameraFocusY = Math.abs(warrior.y - cameraFocusCenterY);

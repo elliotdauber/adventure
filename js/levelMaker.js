@@ -49,9 +49,9 @@
 // 					 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 // 					 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
-var templateExtraLarge = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+var templateExtraLarge = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
-var reachabilityTest = [1,1,1,1,1,1,1,1,1,1,1,1,1,40,1,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,1,0,50,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,43,53,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,51,41,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,52,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,42,1,1,1,1,1,1,1,1,1,1,1];
+var reachabilityTest = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 40, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 43, 53, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 51, 41, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 42, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
 var randomLevelsArray = [];
 
@@ -72,7 +72,7 @@ const EXTRA_LARGE_TEMPLATE_ROWS = 32;//18;
 
 function randomInt(min, max) {
 	var random = Math.random();
-	var num = random*(max+1-min)+min;
+	var num = random * (max + 1 - min) + min;
 	return Math.floor(num);
 }
 
@@ -86,43 +86,43 @@ function levelMaker(template, cols, rows) {
 	this.hasBoss = false; //used to pipe boss levels into random level grids, usually stays false though
 	this.entryQuestPrerequisites = [];
 
-	this.getCols = function() {
+	this.getCols = function () {
 		return this.cols;
 	}
-	this.getRows = function() {
+	this.getRows = function () {
 		return this.rows;
 	}
-	this.getIndex = function(col, row) {
-		return row*this.cols + col;
+	this.getIndex = function (col, row) {
+		return row * this.cols + col;
 	}
-	this.getOriginWall = function() {
+	this.getOriginWall = function () {
 		if (!this.walls.length) {
 			return null;
 		}
-		var wallIndex = Math.floor(Math.random()*this.walls.length);
+		var wallIndex = Math.floor(Math.random() * this.walls.length);
 		return this.walls[wallIndex];
 	}
 
-	this.drawWallFromEdge = function(side, start, length) {
+	this.drawWallFromEdge = function (side, start, length) {
 		var lastIndex;
-		for (var i = 1; i < length+1; i++) { //plus one is only to check if we should place door
+		for (var i = 1; i < length + 1; i++) { //plus one is only to check if we should place door
 			var col;
 			var row;
 			if (side == 0) {
 				col = start;
 				row = i;
 			} else if (side == 1) {
-				col = (this.cols-1)-i;
+				col = (this.cols - 1) - i;
 				row = start;
 			} else if (side == 2) {
 				col = start
-				row = (this.rows-1)-i;
+				row = (this.rows - 1) - i;
 			} else if (side == 3) {
 				col = i;
 				row = start;
 			}
 
-			var index = row*this.cols + col;
+			var index = row * this.cols + col;
 			// var checkIndexPos;
 			// var checkIndexNeg;
 			// if (side == 0 || side == 2) {
@@ -140,7 +140,7 @@ function levelMaker(template, cols, rows) {
 			// 	this.grid[checkIndexNeg] = TRACK_DOOR;
 			// }
 
-			if (i == length-1) {
+			if (i == length - 1) {
 				lastIndex = index;
 			}
 			if (i == length) {
@@ -150,14 +150,14 @@ function levelMaker(template, cols, rows) {
 					this.numDoors++;
 				}
 				break;
-			} 
+			}
 			this.grid[index] = TRACK_WALL;
 		}
 	}
 
-	this.drawWallFromWall = function(wall) {
+	this.drawWallFromWall = function (wall) {
 		var lastIndex;
-		for (var i = 1; i < wall.length+1; i++) { //plus one is only to check if we should place door
+		for (var i = 1; i < wall.length + 1; i++) { //plus one is only to check if we should place door
 			var col;
 			var row;
 			var gridStart = wall.gridStart;
@@ -175,10 +175,10 @@ function levelMaker(template, cols, rows) {
 				} else {
 					col = gridStart - i;
 				}
-			} 
+			}
 			//var index = this.getIndex(col, row);
-			var index = row*this.cols + col;
-			if (i == wall.length-1) {
+			var index = row * this.cols + col;
+			if (i == wall.length - 1) {
 				lastIndex = index;
 			}
 			if (i == wall.length) {
@@ -188,14 +188,14 @@ function levelMaker(template, cols, rows) {
 					this.numDoors++;
 				}
 				break;
-			} 
+			}
 			this.grid[index] = TRACK_WALL;
 			if (i == 1) {
 			}
 		}
 	}
 
-	this.isLegalWallFromEdge = function(side, start, length) {
+	this.isLegalWallFromEdge = function (side, start, length) {
 		for (var i = 1; i < length; i++) {
 			var col;
 			var row;
@@ -203,17 +203,17 @@ function levelMaker(template, cols, rows) {
 				col = start;
 				row = i;
 			} else if (side == 1) {
-				col = (this.cols-1)-i;
+				col = (this.cols - 1) - i;
 				row = start;
 			} else if (side == 2) {
 				col = start
-				row = (this.rows-1)-i;
+				row = (this.rows - 1) - i;
 			} else if (side == 3) {
 				col = i;
 				row = start;
 			}
 			//var index = this.getIndex(col, row);
-			var index = row*this.cols + col;
+			var index = row * this.cols + col;
 
 			if (this.grid[index] != TRACK_ROAD) {
 				return false;
@@ -222,7 +222,7 @@ function levelMaker(template, cols, rows) {
 		return true;
 	}
 
-	this.isLegalWallFromWall = function(newWall, fromWall, newWallDirection, newWallLength, start) {
+	this.isLegalWallFromWall = function (newWall, fromWall, newWallDirection, newWallLength, start) {
 		var fromWallOrientation = fromWall.orientation;
 		start = Math.floor(start);
 		for (var i = 1; i < newWallLength; i++) {
@@ -241,7 +241,7 @@ function levelMaker(template, cols, rows) {
 				row = start
 				col = fromWall.start - i;
 			}
-			var index = row*this.cols + col;
+			var index = row * this.cols + col;
 
 			if (this.grid[index] != TRACK_ROAD) {
 				return false;
@@ -250,16 +250,16 @@ function levelMaker(template, cols, rows) {
 		return true;
 	}
 
-	this.addElement = function(picCode, num, canPlaceCorridor) {
+	this.addElement = function (picCode, num, canPlaceCorridor) {
 		for (var i = 0; i < num; i++) {
 			while (true) {
-				var randomIndex = Math.random()*this.cols*this.rows;
+				var randomIndex = Math.random() * this.cols * this.rows;
 				randomIndex = Math.floor(randomIndex);
 				if (this.grid[randomIndex] == TRACK_ROAD) {
-					if (!canPlaceCorridor && (this.isCorridor(randomIndex) || this.isCorridor(this.indexNorth(randomIndex)) 
-						|| this.isCorridor(this.indexEast(randomIndex)) || this.isCorridor(this.indexSouth(randomIndex)) 
+					if (!canPlaceCorridor && (this.isCorridor(randomIndex) || this.isCorridor(this.indexNorth(randomIndex))
+						|| this.isCorridor(this.indexEast(randomIndex)) || this.isCorridor(this.indexSouth(randomIndex))
 						|| this.isCorridor(this.indexWest(randomIndex)))) {
-							continue;
+						continue;
 					}
 					this.grid[randomIndex] = picCode;
 					break;
@@ -268,7 +268,7 @@ function levelMaker(template, cols, rows) {
 		}
 	}
 
-	this.isDoorInCorridorRow = function(index) {
+	this.isDoorInCorridorRow = function (index) {
 		var indexLeft = index;
 		var indexRight = index;
 		while (this.grid[indexLeft] != TRACK_WALL) {
@@ -286,11 +286,11 @@ function levelMaker(template, cols, rows) {
 		return false;
 	}
 
-	this.isCorridor = function(index) {
-		var north = index-this.cols;
-		var south = index+this.cols;
-		var east = index-1;
-		var west = index+1;
+	this.isCorridor = function (index) {
+		var north = index - this.cols;
+		var south = index + this.cols;
+		var east = index - 1;
+		var west = index + 1;
 		var northWall = this.grid[north] == TRACK_WALL
 		var southWall = this.grid[south] == TRACK_WALL
 		var eastWall = this.grid[east] == TRACK_WALL
@@ -304,12 +304,12 @@ function levelMaker(template, cols, rows) {
 		return false;
 	}
 
-	this.addCorridoors = function(maxDoors) { //works, but could be a lot better
+	this.addCorridoors = function (maxDoors) { //works, but could be a lot better
 		var newDoorCounter = 0;
-		for (var col = 1; col < this.cols-1; col++) {
+		for (var col = 1; col < this.cols - 1; col++) {
 			var indexes = [];
 			var doorExists = false;
-			for (var row = 1; row < this.rows-1; row++) {
+			for (var row = 1; row < this.rows - 1; row++) {
 				var index = this.getIndex(col, row)
 				if (this.grid[index] == TRACK_ROAD && this.isCorridor(index) && !this.isDoorInCorridorRow(index)) {
 					indexes.push(index);
@@ -319,7 +319,7 @@ function levelMaker(template, cols, rows) {
 				}
 			}
 			if (!doorExists && indexes.length > 0) {
-				var randomNum = Math.floor(Math.random()*indexes.length);
+				var randomNum = Math.floor(Math.random() * indexes.length);
 				var randomIndex = indexes[randomNum];
 				this.grid[randomIndex] = TRACK_DOOR;
 				this.numDoors++;
@@ -341,7 +341,7 @@ function levelMaker(template, cols, rows) {
 		return counter;
 	}
 
-	this.makeLevel = function() {
+	this.makeLevel = function () {
 		var savedGrid = this.grid.slice();
 		var gridIsValid = false;
 		var northIndex = this.grid.indexOf(NORTH);
@@ -383,7 +383,7 @@ function levelMaker(template, cols, rows) {
 			}
 			var minExitsReached = 2;
 			var output = [numNorthReached, numSouthReached, numEastReached, numWestReached]
-			if (countNulls(output) > output.length-minExitsReached) {
+			if (countNulls(output) > output.length - minExitsReached) {
 				minExitsReached = 1; //maybe change this
 			}
 			var numInvalid = 0;
@@ -398,7 +398,7 @@ function levelMaker(template, cols, rows) {
 			if (!(northIndex == -1 && southIndex == -1 && eastIndex == -1 && westIndex == -1)) { //this if statement is mostly for gridMaker, as theres no exits in the random levels
 				for (var i = 1; i < 8; i++) {
 					for (var j = 1; j < 8; j++) {
-						var index = Math.round(this.getIndex(i*this.cols/8, j*this.rows/8));
+						var index = Math.round(this.getIndex(i * this.cols / 8, j * this.rows / 8));
 						if (opaqueTiles.indexOf(this.grid[index]) == -1 && this.findReachableExits(index, 0, []) < 1) {
 							foundInvalid = true;
 							break;
@@ -418,28 +418,28 @@ function levelMaker(template, cols, rows) {
 		}
 
 		//put "opaque" tiles above!!!
-		var pinkPortal = randomInt(0,1);
-		var greenPortal = randomInt(0,1);
-		this.addCorridoors(this.cols-2);
+		var pinkPortal = randomInt(0, 1);
+		var greenPortal = randomInt(0, 1);
+		this.addCorridoors(this.cols - 2);
 		this.addElement(SPIKES_IN, randomInt(3, 7), true);
 		this.addElement(SPIKES_OUT, randomInt(3, 7), true);
-		this.addElement(TRACK_KEY, this.numDoors-1, true); //maybe remove +2 when creating doors is fixed
+		this.addElement(TRACK_KEY, this.numDoors - 1, true); //maybe remove +2 when creating doors is fixed
 		this.addElement(APPLE, randomInt(1, 4), true);
 		this.addElement(GRAPES, randomInt(1, 3), true);
 		this.addElement(GHOST_START, randomInt(3, 8), true);
 		this.addElement(ZOMBIE_START, randomInt(3, 8), true);
 		this.addElement(SPIDER_START, randomInt(3, 8), true);
 		this.addElement(LEVEL_UP, randomInt(0, 1), true);
-		this.addElement(PORTAL_IN, pinkPortal*2, true);
-		this.addElement(GREEN_PORTAL_IN, greenPortal*2, true);
+		this.addElement(PORTAL_IN, pinkPortal * 2, true);
+		this.addElement(GREEN_PORTAL_IN, greenPortal * 2, true);
 	}
 
-	this.link = function(directionConstant, index, spawnConstant, spawnIndex) {
+	this.link = function (directionConstant, index, spawnConstant, spawnIndex) {
 		this.grid[index] = directionConstant;
 		this.grid[spawnIndex] = spawnConstant;
 	}
 
-	this.findReachableExits = function(index, numReached, visited) {
+	this.findReachableExits = function (index, numReached, visited) {
 		//idea: if you cant reach more than 50 or 60 percent, you fail
 		var tileHere = this.grid[index];
 		var passableTiles = [TRACK_ROAD, TRACK_DOOR, SPAWN_NORTH, SPAWN_EAST, SPAWN_WEST, SPAWN_SOUTH];
@@ -467,30 +467,30 @@ function levelMaker(template, cols, rows) {
 	}
 
 
-	this.indexSouth = function(index) {
-		return index+this.cols;
+	this.indexSouth = function (index) {
+		return index + this.cols;
 	}
 
-	this.indexNorth = function(index) {
-		return index-this.cols;
+	this.indexNorth = function (index) {
+		return index - this.cols;
 	}
 
-	this.indexEast = function(index) {
-		return index+1;
+	this.indexEast = function (index) {
+		return index + 1;
 	}
 
-	this.indexWest = function(index) {
-		return index-1;
+	this.indexWest = function (index) {
+		return index - 1;
 	}
 
-	this.findWallInDirection = function(index, directionFunction) {
+	this.findWallInDirection = function (index, directionFunction) {
 		while (this.grid[directionFunction.call(this, index)] != TRACK_WALL) {
 			index = directionFunction.call(this, index);
 		}
 		return index;
 	}
 
-	this.goUntilWall = function(index, directionFunctionFront, directionFunctionRight, exitIndex) {
+	this.goUntilWall = function (index, directionFunctionFront, directionFunctionRight, exitIndex) {
 		var exitsCounter = 0;
 		while (this.grid[directionFunctionFront.call(this, index)] != TRACK_WALL) {
 			var side = directionFunctionRight.call(this, index);
@@ -509,7 +509,7 @@ function levelMaker(template, cols, rows) {
 		};
 	}
 
-	this.howManyExitsReachable = function(startIndex) {
+	this.howManyExitsReachable = function (startIndex) {
 		var exitsCounter = 0;
 		var index = this.findWallInDirection(startIndex, this.indexSouth);
 
@@ -529,7 +529,7 @@ function levelMaker(template, cols, rows) {
 		var goSouthResult = this.goUntilWall(index, this.indexSouth, this.indexWest, WEST);
 		index = goSouthResult.newIndex;
 		exitsCounter += goSouthResult.exitsFound;
-		console.log("EXITS FOUND: "+exitsCounter);
+		console.log("EXITS FOUND: " + exitsCounter);
 		return exitsCounter;
 	}
 
@@ -610,13 +610,13 @@ function Wall(levelMaker) {
 	var cols = this.levelMaker.getCols();
 	var rows = this.levelMaker.getRows();
 
-	this.buildFromWall = function() {
+	this.buildFromWall = function () {
 		var wall = this.levelMaker.getOriginWall();
 		if (wall != null) {
 			var newWallDirection;
 			var lowerBound = wall.gridStart;
 			var upperBound = wall.gridEnd;
-			var start = Math.random()*(upperBound-lowerBound)+lowerBound;
+			var start = Math.random() * (upperBound - lowerBound) + lowerBound;
 			start = Math.floor(start);
 			var newWallLength;
 			var orientation;
@@ -630,24 +630,24 @@ function Wall(levelMaker) {
 			}
 
 			if (wall.orientation == HORIZANTAL) {
-				newWallLength = Math.random()*(cols-3-5)+5;
+				newWallLength = Math.random() * (cols - 3 - 5) + 5;
 				orientation = VERTICAL;
 				if (newWallDirection == NEGATIVE) {
 					gridEnd = wall.start;
-					gridStart = gridEnd - length+1;
+					gridStart = gridEnd - length + 1;
 				} else {
 					gridStart = wall.start;
-					gridEnd = gridStart + length-1;
+					gridEnd = gridStart + length - 1;
 				}
 			} else if (wall.orientation == VERTICAL) {
-				newWallLength = Math.random()*(rows-3-5)+5;
+				newWallLength = Math.random() * (rows - 3 - 5) + 5;
 				orientation = HORIZANTAL;
 				if (newWallDirection == NEGATIVE) {
 					gridEnd = wall.start;
-					gridStart = gridEnd - length+1;
+					gridStart = gridEnd - length + 1;
 				} else {
 					gridStart = wall.start;
-					gridEnd = gridStart + length-1;
+					gridEnd = gridStart + length - 1;
 				}
 			}
 
@@ -667,8 +667,8 @@ function Wall(levelMaker) {
 		return false;
 	}
 
-	this.buildFromEdge = function() {
-		var side = Math.floor(Math.random()*4);
+	this.buildFromEdge = function () {
+		var side = Math.floor(Math.random() * 4);
 		var start;
 		var length;
 		var orientation;
@@ -676,32 +676,32 @@ function Wall(levelMaker) {
 		var gridEnd;
 		// north:0, east:1, south:2, west:3
 		if (side == 0 || side == 2) {
-			start = Math.random()*(cols-2)+1;
-			length = Math.random()*(rows-3-3)+3;
+			start = Math.random() * (cols - 2) + 1;
+			length = Math.random() * (rows - 3 - 3) + 3;
 			orientation = VERTICAL;
 			if (side == 0) {
 				gridStart = 0;
-				gridEnd = gridStart + length-1;
+				gridEnd = gridStart + length - 1;
 			} else {
 				gridEnd = rows - 1;
-				gridStart = gridEnd - length+1;
+				gridStart = gridEnd - length + 1;
 			}
 		} else if (side == 1 || side == 3) {
-			start = Math.random()*(rows-2)+1;
-			length = Math.random()*(cols-3-3)+3;
+			start = Math.random() * (rows - 2) + 1;
+			length = Math.random() * (cols - 3 - 3) + 3;
 			orientation = HORIZANTAL;
 			if (side == 1) {
 				gridEnd = cols - 1;
-				gridStart = gridEnd - length+1;
+				gridStart = gridEnd - length + 1;
 			} else {
 				gridStart = 0;
-				gridEnd = gridStart + length-1;
+				gridEnd = gridStart + length - 1;
 			}
 		}
 
 		start = Math.floor(start);
 		length = Math.floor(length);
-		
+
 		if (this.levelMaker.isLegalWallFromEdge(side, start, length)) {
 			this.side = side;
 			this.start = start;
@@ -715,7 +715,7 @@ function Wall(levelMaker) {
 		return false;
 	}
 
-	this.build = function() {
+	this.build = function () {
 		while (true) {
 			var edgeOrWall = Math.random();
 			if (edgeOrWall < 0.7) {
@@ -767,17 +767,17 @@ function randomLevelsArrayTest() {
 }
 
 function findFreeSpace(gridArray) { //not used
-  var coords = {
-  	x: 0,
-  	y: 0
-  }
-  while (true) {
-    coords.x = randomInt(0, canvas.width);
-    coords.y = randomInt(0, canvas.height);
-    if (gridArray[getIndexFromXY(coords.x, coords.y)] == TRACK_ROAD) {
-      return coords;
-    }
-  }
+	var coords = {
+		x: 0,
+		y: 0
+	}
+	while (true) {
+		coords.x = randomInt(0, canvas.width);
+		coords.y = randomInt(0, canvas.height);
+		if (gridArray[getIndexFromXY(coords.x, coords.y)] == TRACK_ROAD) {
+			return coords;
+		}
+	}
 }
 
 function createPlayableRandomLevels(numLevels, bossLevel, NPCArray, QuestItemsArray) {
@@ -787,14 +787,14 @@ function createPlayableRandomLevels(numLevels, bossLevel, NPCArray, QuestItemsAr
 		makeRandomLevelsArray(numLevels);
 	}
 	allLevelsArray = [];
-	var startIndex = randomInt(0, numLevels-1);
-	var pinkPortalKeyIndex = randomInt(0, numLevels-1);
-	var greenPortalKeyIndex = randomInt(0, numLevels-1);
+	var startIndex = randomInt(0, numLevels - 1);
+	var pinkPortalKeyIndex = randomInt(0, numLevels - 1);
+	var greenPortalKeyIndex = randomInt(0, numLevels - 1);
 	for (var i = 0; i < NPCArray.length; i++) {
-		NPCArray[i].randomLevelNumber = randomInt(0, numLevels-1);
+		NPCArray[i].randomLevelNumber = randomInt(0, numLevels - 1);
 	}
 	for (var i = 0; i < QuestItemsArray.length; i++) {
-		QuestItemsArray[i].randomLevelNumber = randomInt(0, numLevels-1);
+		QuestItemsArray[i].randomLevelNumber = randomInt(0, numLevels - 1);
 	}
 
 	var levelHereCounter = 0;
@@ -819,7 +819,7 @@ function createPlayableRandomLevels(numLevels, bossLevel, NPCArray, QuestItemsAr
 				if (NPCArray[j].randomLevelNumber == levelHereCounter) {
 					if (randomLevelsArray[i].hasBoss) {
 						if (levelHereCounter == numLevels) {
-							var lastLevelIndex = i-1;
+							var lastLevelIndex = i - 1;
 							while (!allLevelsArray[lastLevelIndex]) {
 								lastLevelIndex--;
 							}
@@ -843,7 +843,7 @@ function createPlayableRandomLevels(numLevels, bossLevel, NPCArray, QuestItemsAr
 				if (QuestItemsArray[j].randomLevelNumber == levelHereCounter) {
 					if (randomLevelsArray[i].hasBoss) {
 						if (levelHereCounter == numLevels) {
-							var lastLevelIndex = i-1;
+							var lastLevelIndex = i - 1;
 							while (!allLevelsArray[lastLevelIndex]) {
 								lastLevelIndex--;
 							}
@@ -865,11 +865,11 @@ function createPlayableRandomLevels(numLevels, bossLevel, NPCArray, QuestItemsAr
 
 			var theme = randomInt(0, 3); //CHANGE IF ADDING MORE THEMES
 			var newLevelClass = new levelClass(i)
-									.setMapArray(randomLevelsArray[i].grid)
-									.setThemeConstant(theme)
-									.setNPCArray(randomNPCs)
-									.setQuestItemsArray(randomQuestItems)
-									.setEntryQuestPrerequisites(randomLevelsArray[i].entryQuestPrerequisites);
+				.setMapArray(randomLevelsArray[i].grid)
+				.setThemeConstant(theme)
+				.setNPCArray(randomNPCs)
+				.setQuestItemsArray(randomQuestItems)
+				.setEntryQuestPrerequisites(randomLevelsArray[i].entryQuestPrerequisites);
 			if (randomLevelsArray[i].hasBoss) {
 				newLevelClass.setAsBossLevel();
 			}
@@ -877,7 +877,7 @@ function createPlayableRandomLevels(numLevels, bossLevel, NPCArray, QuestItemsAr
 			if (startIndex == levelHereCounter) {
 				if (randomLevelsArray[i].hasBoss) {
 					if (levelHereCounter == numLevels) {
-						var lastLevelIndex = i-1;
+						var lastLevelIndex = i - 1;
 						while (!allLevelsArray[lastLevelIndex]) {
 							lastLevelIndex--;
 						}
@@ -920,62 +920,62 @@ function createLinks(level1, level2, direction1To2) {
 		if (boss) {
 			pos = level1.grid.indexOf(NORTH) % cols;
 		} else {
-			pos = randomInt(2, cols-3);
+			pos = randomInt(2, cols - 3);
 		}
 		level1Index = pos;
-		level2Index = cols*(rows-1)+pos;
-		level1SpawnIndex = level1Index+cols;
-		level2SpawnIndex = level2Index-cols;
+		level2Index = cols * (rows - 1) + pos;
+		level1SpawnIndex = level1Index + cols;
+		level2SpawnIndex = level2Index - cols;
 		direction1To2Constant = NORTH;
 		direction2To1Constant = SOUTH;
 	} else if (direction1To2 == "south") { //doesn't get called as of now
 		if (boss) {
 			pos = level1.grid.indexOf(SOUTH) % cols;
 		} else {
-			pos = randomInt(2, cols-3);
+			pos = randomInt(2, cols - 3);
 		}
-		level1Index = cols*(rows-1)+pos;
+		level1Index = cols * (rows - 1) + pos;
 		level2Index = pos;
-		level1SpawnIndex = level1Index-cols;
-		level2SpawnIndex = level2Index+cols;
+		level1SpawnIndex = level1Index - cols;
+		level2SpawnIndex = level2Index + cols;
 		direction1To2Constant = SOUTH;
 		direction2To1Constant = NORTH;
 	} else if (direction1To2 == "east") {
 		if (boss) {
 			pos = Math.floor(level1.grid.indexOf(EAST) / cols);
 		} else {
-			pos = randomInt(2, rows-3);
+			pos = randomInt(2, rows - 3);
 		}
-		level1Index = cols*(pos+1)-1;
-		level2Index = cols*pos;
-		level1SpawnIndex = level1Index-1;
-		level2SpawnIndex = level2Index+1;
+		level1Index = cols * (pos + 1) - 1;
+		level2Index = cols * pos;
+		level1SpawnIndex = level1Index - 1;
+		level2SpawnIndex = level2Index + 1;
 		direction1To2Constant = EAST;
 		direction2To1Constant = WEST;
 	} else if (direction1To2 == "west") { //doesn't get called as of now
 		if (boss) {
 			pos = Math.floor(level1.grid.indexOf(WEST) / cols);
 		} else {
-			pos = randomInt(2, rows-3);
+			pos = randomInt(2, rows - 3);
 		}
-		level1Index = cols*pos;
-		level2Index = cols*(pos+1)-1;
-		level1SpawnIndex = level1Index+1;
-		level2SpawnIndex = level2Index-1;
+		level1Index = cols * pos;
+		level2Index = cols * (pos + 1) - 1;
+		level1SpawnIndex = level1Index + 1;
+		level2SpawnIndex = level2Index - 1;
 		direction1To2Constant = WEST;
 		direction2To1Constant = EAST;
 	}
 
 	if (!boss) {
-		level1.link(direction1To2Constant, level1Index, direction1To2Constant+10, level1SpawnIndex);
+		level1.link(direction1To2Constant, level1Index, direction1To2Constant + 10, level1SpawnIndex);
 	}
-	level2.link(direction2To1Constant, level2Index, direction2To1Constant+10, level2SpawnIndex);
+	level2.link(direction2To1Constant, level2Index, direction2To1Constant + 10, level2SpawnIndex);
 }
 
 function randomizeArray(array, numSwaps) {
 	for (var i = 0; i < numSwaps; i++) {
-		var index1 = randomInt(0, array.length-1);
-		var index2 = randomInt(0, array.length-1);
+		var index1 = randomInt(0, array.length - 1);
+		var index2 = randomInt(0, array.length - 1);
 		var temp = array[index1];
 		array[index1] = array[index2];
 		array[index2] = temp;
@@ -983,12 +983,12 @@ function randomizeArray(array, numSwaps) {
 }
 
 function getCallStackSize() {
-    var count = 0;
-    var fn = arguments.callee;
-    while ((fn = fn.caller)) {
-        count++;
-    }
-    return count;
+	var count = 0;
+	var fn = arguments.callee;
+	while ((fn = fn.caller)) {
+		count++;
+	}
+	return count;
 }
 
 function findReachableLevels(index, levelsArray, visited) {
@@ -1040,7 +1040,7 @@ function addBossRoomToRandomLevels(bossLevel) {
 		EAST: -1,
 		WEST: 1,
 	}
-	var direction = bossLevel.exits[randomInt(0, bossLevel.exits.length-1)];
+	var direction = bossLevel.exits[randomInt(0, bossLevel.exits.length - 1)];
 	// var oppositeDirection = directionMapping[direction]
 	var oppositeDirection = -ALL_LEVELS_COLS; // temporary, until above line works
 	var validLevels = [];
@@ -1050,25 +1050,25 @@ function addBossRoomToRandomLevels(bossLevel) {
 		}
 		var col = i % ALL_LEVELS_COLS;
 		var row = Math.floor(i / ALL_LEVELS_COLS);
-		if (!randomLevelsArray[i+oppositeDirection] && col != 0 && col != ALL_LEVELS_COLS-1 && row != 0 && row != ALL_LEVELS_ROWS-1) {
+		if (!randomLevelsArray[i + oppositeDirection] && col != 0 && col != ALL_LEVELS_COLS - 1 && row != 0 && row != ALL_LEVELS_ROWS - 1) {
 			validLevels.push(i);
 		}
 	}
 	if (validLevels.length == 0) return false;
-	var index = validLevels[randomInt(0, validLevels.length-1)];
+	var index = validLevels[randomInt(0, validLevels.length - 1)];
 	var levelToAttach = randomLevelsArray[index];
 
 	if (direction == NORTH) {
-		randomLevelsArray[index+ALL_LEVELS_COLS] = bossLevelMaker;
+		randomLevelsArray[index + ALL_LEVELS_COLS] = bossLevelMaker;
 		createLinks(bossLevelMaker, levelToAttach, "north");
 	} else if (direction == SOUTH) {
-		randomLevelsArray[index-ALL_LEVELS_COLS] = bossLevelMaker;
+		randomLevelsArray[index - ALL_LEVELS_COLS] = bossLevelMaker;
 		createLinks(bossLevelMaker, levelToAttach, "south");
 	} else if (direction == EAST) {
-		randomLevelsArray[index-1] = bossLevelMaker;
+		randomLevelsArray[index - 1] = bossLevelMaker;
 		createLinks(bossLevelMaker, levelToAttach, "east");
 	} else if (direction == WEST) {
-		randomLevelsArray[index+1] = bossLevelMaker;
+		randomLevelsArray[index + 1] = bossLevelMaker;
 		createLinks(bossLevelMaker, levelToAttach, "west");
 	}
 	return true;
@@ -1092,7 +1092,7 @@ function checkRandomLevelsArray(numLevels) {
 			var visited = [];
 			findReachableLevels(i, randomLevelsArray, visited);
 			if (visited.length < numLevels) {
-				console.log(randomLevelsArray[i]+ " couldn't reach all other levels");
+				console.log(randomLevelsArray[i] + " couldn't reach all other levels");
 				return false;
 			}
 		}
@@ -1107,15 +1107,15 @@ function makeRandomLevelsArrayHelper(numLevels) {
 		randomLevelsArray.push(newRandomLevel);
 	}
 	//array now populated with empty levels, still need to call makeLevel
-	var maxExtraDims = Math.ceil(numLevels/6); //6 is arbitrary
-	if (numLevels > 50) { 
-		maxExtraDims = Math.ceil(numLevels/15);
-	} else if (numLevels > 20) { 
-		maxExtraDims = Math.ceil(numLevels/10);
+	var maxExtraDims = Math.ceil(numLevels / 6); //6 is arbitrary
+	if (numLevels > 50) {
+		maxExtraDims = Math.ceil(numLevels / 15);
+	} else if (numLevels > 20) {
+		maxExtraDims = Math.ceil(numLevels / 10);
 	}
-	var minExtraDims = Math.ceil(maxExtraDims/2);
-	var gridCols = Math.floor(Math.sqrt(numLevels))+randomInt(minExtraDims, maxExtraDims);
-	var gridRows = Math.ceil(numLevels/gridCols)+randomInt(minExtraDims, maxExtraDims);
+	var minExtraDims = Math.ceil(maxExtraDims / 2);
+	var gridCols = Math.floor(Math.sqrt(numLevels)) + randomInt(minExtraDims, maxExtraDims);
+	var gridRows = Math.ceil(numLevels / gridCols) + randomInt(minExtraDims, maxExtraDims);
 	var gridTotal = gridCols * gridRows;
 
 	//changes the global scope variables
@@ -1132,7 +1132,7 @@ function makeRandomLevelsArrayHelper(numLevels) {
 		var curr = randomLevelsArray[i];
 		if (curr != null) {
 			var col = i % gridCols;
-			var row = Math.floor(i/gridCols)
+			var row = Math.floor(i / gridCols)
 			var indexNorth = i - gridCols;
 			var indexSouth = i + gridCols;
 			var indexEast = i + 1;
@@ -1141,7 +1141,7 @@ function makeRandomLevelsArrayHelper(numLevels) {
 				createLinks(curr, randomLevelsArray[indexNorth], "north");
 				linksMade++;
 			}
-			if (col != gridCols-1 && randomLevelsArray[indexEast] != null && Math.random() < 0.7) {
+			if (col != gridCols - 1 && randomLevelsArray[indexEast] != null && Math.random() < 0.7) {
 				createLinks(curr, randomLevelsArray[indexEast], "east");
 				linksMade++;
 			}

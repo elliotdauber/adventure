@@ -9,6 +9,6 @@ loadingInterval = setInterval(loadingScreen, 20);
 function loadingScreen() {
 	console.log("loading...");
 	colorRect(0, 0, canvas.width, canvas.height, "black");
-	drawImageRotatedScaled(loadingImage, canvas.width/2, canvas.height/2, loadingRadians, 1);
+	drawImageRotatedScaled(loadingImage, canvas.width / 2, canvas.height / 2, loadingRadians, 1);
 	loadingRadians += 0.1;
 }

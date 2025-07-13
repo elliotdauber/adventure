@@ -67,8 +67,8 @@ function returnTileType(col, row) {
 }
 
 function getIndexFromXY(x, y) {
-	var col = Math.floor(x/TRACK_W);
-	var row = Math.floor(y/TRACK_H);
+	var col = Math.floor(x / TRACK_W);
+	var row = Math.floor(y / TRACK_H);
 	return getIndex(col, row);
 }
 
@@ -77,7 +77,7 @@ function getIndex(col, row) {
 }
 
 function getRow(index) {
-	return Math.floor(index/TRACK_COLS);
+	return Math.floor(index / TRACK_COLS);
 }
 
 function getCol(index) {
@@ -92,26 +92,26 @@ function tileHasTransparency(image) {
 }
 
 function isBlockNearbyXY(x, y, block) {
-	var bottom = trackGrid[getIndexFromXY(x, y+16)] == block;
-	var top = trackGrid[getIndexFromXY(x, y-16)] == block;
-	var left = trackGrid[getIndexFromXY(x-16, y)] == block;
-	var right = trackGrid[getIndexFromXY(x+16, y)] == block;
+	var bottom = trackGrid[getIndexFromXY(x, y + 16)] == block;
+	var top = trackGrid[getIndexFromXY(x, y - 16)] == block;
+	var left = trackGrid[getIndexFromXY(x - 16, y)] == block;
+	var right = trackGrid[getIndexFromXY(x + 16, y)] == block;
 	return bottom || top || left || right;
 }
 
 function getInventoryLocation(player) {
 	if (inventoryQuadrant == 0) {
-		player.INV_X = (TRACK_COLS_ON_SCREEN - 4)*TRACK_W + 10;
-		player.INV_Y = TRACK_H+10;
+		player.INV_X = (TRACK_COLS_ON_SCREEN - 4) * TRACK_W + 10;
+		player.INV_Y = TRACK_H + 10;
 	} else if (inventoryQuadrant == 1) {
-		player.INV_X = TRACK_W+10;
-		player.INV_Y = TRACK_H+10;
+		player.INV_X = TRACK_W + 10;
+		player.INV_Y = TRACK_H + 10;
 	} else if (inventoryQuadrant == 2) {
-		player.INV_X = TRACK_W+10;
-		player.INV_Y = (TRACK_ROWS_ON_SCREEN-1)*TRACK_H - 10 - player.INV_H;
+		player.INV_X = TRACK_W + 10;
+		player.INV_Y = (TRACK_ROWS_ON_SCREEN - 1) * TRACK_H - 10 - player.INV_H;
 	} else if (inventoryQuadrant == 3) {
-		player.INV_X = (TRACK_COLS_ON_SCREEN - 4)*TRACK_W + 10;
-		player.INV_Y = (TRACK_ROWS_ON_SCREEN-1)*TRACK_H - 10 - player.INV_H;
+		player.INV_X = (TRACK_COLS_ON_SCREEN - 4) * TRACK_W + 10;
+		player.INV_Y = (TRACK_ROWS_ON_SCREEN - 1) * TRACK_H - 10 - player.INV_H;
 	}
 }
 
@@ -137,10 +137,10 @@ function drawTracks() {
 }
 
 function isAdjacent(player, enemy, max) {
-	var playerCol = Math.floor(player.x/TRACK_W);
-	var playerRow = Math.floor(player.y/TRACK_H);
-	var enemyCol = Math.floor(enemy.x/TRACK_W);
-	var enemyRow = Math.floor(enemy.y/TRACK_H);
+	var playerCol = Math.floor(player.x / TRACK_W);
+	var playerRow = Math.floor(player.y / TRACK_H);
+	var enemyCol = Math.floor(enemy.x / TRACK_W);
+	var enemyRow = Math.floor(enemy.y / TRACK_H);
 	var colDiff = Math.abs(playerCol - enemyCol);
 	var rowDiff = Math.abs(playerRow - enemyRow);
 	if ((colDiff <= max && rowDiff <= max) && (colDiff != max || rowDiff != max)) return true;

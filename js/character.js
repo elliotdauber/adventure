@@ -41,11 +41,12 @@ function charClass(className) {
 	this.maxMana = 10;
 	this.mana = 10;
 	this.manaRegenSpeed = 0.3; //points per second
-	this.manaRegenInterval = setInterval(function() {
-								warrior.mana += warrior.manaRegenSpeed;
-								if (warrior.mana > warrior.maxMana) {
-									warrior.mana = warrior.maxMana;
-								}}, 1000);
+	this.manaRegenInterval = setInterval(function () {
+		warrior.mana += warrior.manaRegenSpeed;
+		if (warrior.mana > warrior.maxMana) {
+			warrior.mana = warrior.maxMana;
+		}
+	}, 1000);
 
 	this.shopping = false;
 	this.currentShop = null;
@@ -56,7 +57,7 @@ function charClass(className) {
 	this.bossesKilled = new Vector();
 	this.caged = false;
 
-	this.setInventoryItems = function() {
+	this.setInventoryItems = function () {
 		let weapon1 = createItemCopy(weapons[0]);
 		let armor1 = createItemCopy(armors[0]);
 		let helmet1 = createItemCopy(helmets[0]);
@@ -152,14 +153,14 @@ function charClass(className) {
 	this.burning = false;
 	this.burningDamage = 0; //just a default
 
-	this.setupInput = function(up, right, down, left) {
+	this.setupInput = function (up, right, down, left) {
 		this.controlKeyUp = up;
 		this.controlKeyRight = right;
 		this.controlKeyDown = down;
 		this.controlKeyLeft = left;
 	};
 
-	this.reset = function(image, charName) {
+	this.reset = function (image, charName) {
 		this.name = charName;
 
 		for (var row = 0; row < TRACK_ROWS; row++) {
@@ -169,20 +170,20 @@ function charClass(className) {
 					if (spawn == TRACK_START) {
 						trackGrid[index] = TRACK_ROAD;
 					}
-					this.x = col * TRACK_W + TRACK_W/2;
-					this.y = row * TRACK_H + TRACK_H/2;
+					this.x = col * TRACK_W + TRACK_W / 2;
+					this.y = row * TRACK_H + TRACK_H / 2;
 
-					this.companion.reset();	
+					this.companion.reset();
 					return;
 				}
 			}
 		}
 	};
 
-	this.checkLevelUp = function() {
-		var level = Math.floor(this.exp/this.levelExp)+1;
+	this.checkLevelUp = function () {
+		var level = Math.floor(this.exp / this.levelExp) + 1;
 		if (level > this.nextLevelUp) {
-			this.nextLevelUp = level+1;
+			this.nextLevelUp = level + 1;
 		}
 		if (level == this.nextLevelUp) {
 			this.availableStatPerks++;
@@ -191,22 +192,22 @@ function charClass(className) {
 			this.health = this.maxHealth;
 			this.mana = this.maxMana;
 			new Notification("You leveled up!", "lightblue");
-			setTimeout(function() {new Notification("New stat upgrade (B)", "lightgreen");}, 5000);
-			setTimeout(function() {new Notification("New skill upgrade (B)", "lightgreen");}, 10000);
+			setTimeout(function () { new Notification("New stat upgrade (B)", "lightgreen"); }, 5000);
+			setTimeout(function () { new Notification("New skill upgrade (B)", "lightgreen"); }, 10000);
 		}
 	}
 
-	this.handleIce = function() {
+	this.handleIce = function () {
 		var index = getIndexFromXY(this.x, this.y);
 		if (trackGrid[index] == TRACK_WALL) {
 			this.onIce = false;
-			if (trackGrid[getIndexFromXY(this.x, this.y-this.speed)] == TRACK_ICE) {
+			if (trackGrid[getIndexFromXY(this.x, this.y - this.speed)] == TRACK_ICE) {
 				this.y -= this.iceSpeed;
-			} else if (trackGrid[getIndexFromXY(this.x, this.y+this.speed)] == TRACK_ICE) {
+			} else if (trackGrid[getIndexFromXY(this.x, this.y + this.speed)] == TRACK_ICE) {
 				this.y += this.iceSpeed;
-			} else if (trackGrid[getIndexFromXY(this.x-this.speed, this.y)] == TRACK_ICE) {
+			} else if (trackGrid[getIndexFromXY(this.x - this.speed, this.y)] == TRACK_ICE) {
 				this.x -= this.iceSpeed;
-			} else if (trackGrid[getIndexFromXY(this.x+this.speed, this.y)] == TRACK_ICE) {
+			} else if (trackGrid[getIndexFromXY(this.x + this.speed, this.y)] == TRACK_ICE) {
 				this.x += this.iceSpeed;
 			}
 			return;
@@ -217,17 +218,17 @@ function charClass(className) {
 		} else {
 			if (this.iceDirection == "up") {
 				this.y -= this.iceSpeed;
-			} else if (this.iceDirection == "down"){
+			} else if (this.iceDirection == "down") {
 				this.y += this.iceSpeed;
-			} else if (this.iceDirection == "left"){
+			} else if (this.iceDirection == "left") {
 				this.x -= this.iceSpeed;
-			} else if (this.iceDirection == "right"){
+			} else if (this.iceDirection == "right") {
 				this.x += this.iceSpeed;
 			}
 		}
 	};
 
-	this.move = function() {
+	this.move = function () {
 		if (this.burning) {
 			this.takeDamage(this.burningDamage);
 		}
@@ -287,7 +288,7 @@ function charClass(className) {
 		}
 		if (this.keyHeld_South) {
 			nextY += step;
-		} 
+		}
 		if (this.keyHeld_East) {
 			nextX += step;
 		}
@@ -295,12 +296,12 @@ function charClass(className) {
 			nextX -= step;
 		}
 
-		var trackCol = Math.floor(nextX/TRACK_W);
-		var trackRow = Math.floor(nextY/TRACK_H);
+		var trackCol = Math.floor(nextX / TRACK_W);
+		var trackRow = Math.floor(nextY / TRACK_H);
 		var tileHere = returnTileType(trackCol, trackRow);
 		var index = getIndex(trackCol, trackRow);
 
-		
+
 		if (tileHere == POISON) { //implement status effects (poison, burning, frozen(slow), stunned) -- show on bottom right of canvas2
 			this.takeDamage(0.01);
 		}
@@ -396,16 +397,16 @@ function charClass(className) {
 			keyPickup.play();
 			trackGrid[index] = TRACK_ROAD;
 			this.keys++;
-		} 
+		}
 		else if (tileHere == PORTAL_KEY) {
 			keyPickup.play();
-		  	trackGrid[index] = TRACK_ROAD;
-		 	this.hasPortalKey = true;
+			trackGrid[index] = TRACK_ROAD;
+			this.hasPortalKey = true;
 		} else if (tileHere == GREEN_PORTAL_KEY) {
 			keyPickup.play();
-		  	trackGrid[index] = TRACK_ROAD;
-		 	this.hasGreenPortalKey = true;
-		} 
+			trackGrid[index] = TRACK_ROAD;
+			this.hasGreenPortalKey = true;
+		}
 		else if (tileHere == TRACK_DOOR && this.keys > 0) {
 			doorOpen.play();
 			trackGrid[index] = TRACK_ROAD;
@@ -418,14 +419,14 @@ function charClass(className) {
 			warrior.exp += warrior.levelExp;
 			trackGrid[index] = TRACK_ROAD;
 		} else if (tileHere == SPIKES_OUT && this.canTakeSpikeDamage) {
-			this.takeDamage(this.maxHealth/4);
+			this.takeDamage(this.maxHealth / 4);
 			this.canTakeSpikeDamage = false;
-			setTimeout(function() {
-							warrior.canTakeSpikeDamage = true;
-						}, 500)
+			setTimeout(function () {
+				warrior.canTakeSpikeDamage = true;
+			}, 500)
 		} else if (tileHere == TRACK_ICE) {
-			var currCol = Math.floor(this.x/TRACK_W);
-			var currRow = Math.floor(this.y/TRACK_H);
+			var currCol = Math.floor(this.x / TRACK_W);
+			var currRow = Math.floor(this.y / TRACK_H);
 			var direction;
 			if (currCol == trackCol - 1) { //NOTE: handle edge case where you approach from the corner
 				this.iceDirection = "right";
@@ -440,9 +441,9 @@ function charClass(className) {
 			this.y = nextY;
 			this.onIce = true;
 			this.handleIce();
-		} else if ((tileHere == TRACK_ROAD && !isBlockNearbyXY(nextX, nextY, TRACK_WALL 
-			&& !isBlockNearbyXY(nextX, nextY, SHOP)))|| tileHere == PORTAL_IN || tileHere == GREEN_PORTAL_IN || tileHere == SPAWN_NORTH || 
-			tileHere == SPAWN_EAST || tileHere == SPAWN_SOUTH || tileHere == SPAWN_WEST || tileHere == TELEPORT || tileHere == SPIKES_IN || 
+		} else if ((tileHere == TRACK_ROAD && !isBlockNearbyXY(nextX, nextY, TRACK_WALL
+			&& !isBlockNearbyXY(nextX, nextY, SHOP))) || tileHere == PORTAL_IN || tileHere == GREEN_PORTAL_IN || tileHere == SPAWN_NORTH ||
+			tileHere == SPAWN_EAST || tileHere == SPAWN_SOUTH || tileHere == SPAWN_WEST || tileHere == TELEPORT || tileHere == SPIKES_IN ||
 			tileHere == SPIKES_OUT || tileHere == WEB || tileHere == POISON || tileHere == APPLE || tileHere == GRAPES || tileHere == TRACK_GOAL) {
 			this.x = nextX;
 			this.y = nextY;
@@ -467,7 +468,7 @@ function charClass(className) {
 		}
 	};
 
-	this.meleeAttack = function() {
+	this.meleeAttack = function () {
 		var counter = 0;
 		for (var i = 0; i < enemies.length; i++) {
 			if (isAdjacent(this, enemies[i], 1) && this.canAttack && enemies[i].alive) {
@@ -495,20 +496,20 @@ function charClass(className) {
 			}
 		}
 		this.canAttack = false;
-		setTimeout(function() {warrior.canAttack = true;}, this.attackRate);
+		setTimeout(function () { warrior.canAttack = true; }, this.attackRate);
 	}
 
-	this.rangedAttack = function(x, y) {
+	this.rangedAttack = function (x, y) {
 		if (this.mana < this.currentSpell.manaCost) {
 			return;
 		}
 		this.mana -= this.currentSpell.manaCost;
 		this.currentSpell.attackFunction(x, y);
 		this.canAttack = false;
-		setTimeout(function() {warrior.canAttack = true;}, this.attackRate+this.currentSpell.attackRate);
+		setTimeout(function () { warrior.canAttack = true; }, this.attackRate + this.currentSpell.attackRate);
 	}
 
-	this.attack = function(x, y) {
+	this.attack = function (x, y) {
 		if (!warrior.canAttack) {
 			return;
 		}
@@ -520,7 +521,7 @@ function charClass(className) {
 		}
 	}
 
-	this.handleApple = function(index) {
+	this.handleApple = function (index) {
 		if (this.health < this.maxHealth) {
 			appleEffect();
 			trackGrid[index] = TRACK_ROAD;
@@ -535,7 +536,7 @@ function charClass(className) {
 		}
 	}
 
-	this.handleGrapes = function(index) {
+	this.handleGrapes = function (index) {
 		if (this.mana < this.maxMana) {
 			grapeEffect();
 			trackGrid[index] = TRACK_ROAD;
@@ -550,7 +551,7 @@ function charClass(className) {
 		}
 	}
 
-	this.takeDamage = function(damage, source) {
+	this.takeDamage = function (damage, source) {
 		if (this.blocking) { //TODO: doesnt cover burning/poison/other status effects
 			return;
 		}
@@ -570,7 +571,7 @@ function charClass(className) {
 			}
 		}
 		playerDamageSound.play();
-		this.health -= (damage/this.defense)*(randomInt(8,12)*0.1); //from 80% to 120%
+		this.health -= (damage / this.defense) * (randomInt(8, 12) * 0.1); //from 80% to 120%
 		if (this.health <= 0) {
 			this.exp -= 500;
 			if (this.exp < 0) {
@@ -580,7 +581,7 @@ function charClass(className) {
 		}
 	};
 
-	this.moveAndDrawProjectiles = function() {
+	this.moveAndDrawProjectiles = function () {
 		var projectilesSize = this.projectiles.size()
 		for (var i = 0; i < projectilesSize; i++) {
 			this.projectiles.getElemAtIndex(i).move();
@@ -588,7 +589,7 @@ function charClass(className) {
 		}
 	}
 
-	this.draw = function() {
+	this.draw = function () {
 		if (this.burning) {
 			console.log("character is burning!!")
 		}
@@ -629,7 +630,7 @@ function charClass(className) {
 		this.moveAndDrawProjectiles();
 	};
 
-	this.equip = function(item) {
+	this.equip = function (item) {
 		var type = item.type;
 		var invItem = this.inventory[this.currInv][type];
 		if (invItem != null) {
@@ -640,19 +641,19 @@ function charClass(className) {
 		this.setValuesFromInventory();
 	};
 
-	this.shop = function() {
+	this.shop = function () {
 		showBag();
 		this.currentShop.drawShop();
 	};
 
-	this.buy = function(itemIndex) {
+	this.buy = function (itemIndex) {
 		if (this.numBagItems >= this.bagSize) {
 			new Notification("Bag is full!");
 			return;
 		}
 		var item = this.currentShop.items[itemIndex];
 		var cost = item.cost;
-		if (this.numCoins < cost) { 
+		if (this.numCoins < cost) {
 			strikeSound.play();
 			new Notification("Not enough coins!");
 			return;
@@ -665,8 +666,8 @@ function charClass(className) {
 		this.currentShop.numItems--;
 		this.setValuesFromInventory();
 	};
-	
-	this.setDamageFromInventory = function() {
+
+	this.setDamageFromInventory = function () {
 		this.damage = this.baseDamage;
 		for (var i = 0; i < itemTypes.length; i++) {
 			var type = itemTypes[i];
@@ -680,7 +681,7 @@ function charClass(className) {
 		}
 	};
 
-	this.setDefenseFromInventory = function() {
+	this.setDefenseFromInventory = function () {
 		this.defense = this.baseDefense;
 		for (var i = 0; i < itemTypes.length; i++) {
 			var type = itemTypes[i];
@@ -691,7 +692,7 @@ function charClass(className) {
 		}
 	};
 
-	this.setSpeedFromInventory = function() {
+	this.setSpeedFromInventory = function () {
 		this.speed = this.baseSpeed;
 		for (var i = 0; i < itemTypes.length; i++) {
 			var type = itemTypes[i];
@@ -702,7 +703,7 @@ function charClass(className) {
 		}
 	};
 
-	this.setAttackRateFromInventory = function() {
+	this.setAttackRateFromInventory = function () {
 		this.attackRate = this.baseAttackRate;
 		for (var i = 0; i < itemTypes.length; i++) {
 			var type = itemTypes[i];
@@ -716,7 +717,7 @@ function charClass(className) {
 		}
 	};
 
-	this.setValuesFromInventory = function() {
+	this.setValuesFromInventory = function () {
 		this.setDamageFromInventory();
 		this.setDefenseFromInventory();
 		this.setSpeedFromInventory();
@@ -724,56 +725,56 @@ function charClass(className) {
 	};
 }
 
-charClass.prototype.setSpeed = function(speed) {
+charClass.prototype.setSpeed = function (speed) {
 	this.baseSpeed = speed;
 	return this;
 };
 
-charClass.prototype.setAttackRate = function(attackRate) {
+charClass.prototype.setAttackRate = function (attackRate) {
 	this.baseAttackRate = attackRate;
 	return this;
 };
 
-charClass.prototype.setDamage = function(damage) {
+charClass.prototype.setDamage = function (damage) {
 	this.baseDamage = damage;
 	return this;
 };
 
-charClass.prototype.setLevelExp = function(levelExp) {
+charClass.prototype.setLevelExp = function (levelExp) {
 	this.levelExp = levelExp;
 	return this;
 };
 
-charClass.prototype.setHealth = function(health) {
+charClass.prototype.setHealth = function (health) {
 	this.maxHealth = health;
 	this.health = health;
 	return this;
 };
 
-charClass.prototype.setMana = function(mana) {
+charClass.prototype.setMana = function (mana) {
 	this.maxMana = mana;
 	this.mana = mana;
 	return this;
 };
 
-charClass.prototype.setDefense = function(defense) {
+charClass.prototype.setDefense = function (defense) {
 	this.baseDefense = defense;
 	return this;
 };
 
-charClass.prototype.setBag = function(item) {
+charClass.prototype.setBag = function (item) {
 	let newItem = Object.assign({}, item);
 	this.bag = [newItem];
 	this.numBagItems = this.bag.length;
 	return this;
 };
 
-charClass.prototype.setFacePic = function(facePic) {
+charClass.prototype.setFacePic = function (facePic) {
 	this.facePic = facePic;
 	return this;
 };
 
-charClass.prototype.setInvValues = function() {
+charClass.prototype.setInvValues = function () {
 	this.setValuesFromInventory();
 	return this;
 }

@@ -12,7 +12,7 @@ function charProjectile(source, clickX, clickY) {
 	}
 	this.dX = this.clickX - this.x;
 	this.dY = this.clickY - this.y;
-	var dist = Math.sqrt(this.dX*this.dX + this.dY*this.dY);
+	var dist = Math.sqrt(this.dX * this.dX + this.dY * this.dY);
 
 	this.projectilesArrayIndex = source.projectiles.size();
 	this.speed = source.currentSpell.speed;
@@ -20,7 +20,7 @@ function charProjectile(source, clickX, clickY) {
 	this.damage = source.damage + source.currentSpell.damage;
 	this.pic = source.currentSpell.pic;
 
-	var tan = this.dY/this.dX;
+	var tan = this.dY / this.dX;
 	this.angle = Math.atan(tan);
 
 	if (this.clickX < this.x) {
@@ -34,23 +34,23 @@ function charProjectile(source, clickX, clickY) {
 
 	source.projectiles.push(this);
 
-	this.removeFromProjectilesArray = function() {
+	this.removeFromProjectilesArray = function () {
 		warrior.projectiles.remove(this.projectilesArrayIndex, 1);
 	}
 
-	this.move = function() {
+	this.move = function () {
 		var tileKindHere = trackGrid[getIndexFromXY(this.x, this.y)]
 		if ((tileKindHere == TRACK_WALL && !THEME_SETTINGS_ARRAY[currentLevel.theme].wallTransparency) || tileKindHere == TRACK_DOOR) {
 			this.removeFromProjectilesArray();
 		}
 
-		var moveX = this.speed * this.dX/dist;
-		var moveY = this.speed * this.dY/dist;
-		var totalMoved = Math.sqrt(moveX*moveX + moveY*moveY)
+		var moveX = this.speed * this.dX / dist;
+		var moveY = this.speed * this.dY / dist;
+		var totalMoved = Math.sqrt(moveX * moveX + moveY * moveY)
 
-		this.x += this.speed * this.dX/dist;
-		this.y += this.speed * this.dY/dist;
-		
+		this.x += this.speed * this.dX / dist;
+		this.y += this.speed * this.dY / dist;
+
 		this.range -= totalMoved;
 
 		for (var i = 0; i < enemies.length; i++) {
@@ -68,13 +68,13 @@ function charProjectile(source, clickX, clickY) {
 					this.removeFromProjectilesArray();
 				}
 			}
-		} 
+		}
 		if (this.range <= 0) {
 			this.removeFromProjectilesArray();
 		}
 	}
 
-	this.draw = function() {
+	this.draw = function () {
 		drawImageRotatedScaled(this.pic, this.x, this.y, this.angle, 1);
 	}
 }
@@ -97,18 +97,18 @@ function rotatingProjectile(source, radius) {
 	}
 	source.projectiles.push(this);
 
-	this.removeFromProjectilesArray = function() {
+	this.removeFromProjectilesArray = function () {
 		warrior.projectiles.remove(this.projectilesArrayIndex, 1);
 	}
 
-	this.move = function() {
+	this.move = function () {
 		var tileKindHere = trackGrid[getIndexFromXY(this.x, this.y)]
-		
+
 		this.centerX = source.x;
 		this.centerY = source.y
-		this.circlePosRadians += 0.0174533*this.speed; //1 degree
-		this.x = this.centerX + Math.cos(this.circlePosRadians)*radius;
-		this.y = this.centerY + Math.sin(this.circlePosRadians)*radius;
+		this.circlePosRadians += 0.0174533 * this.speed; //1 degree
+		this.x = this.centerX + Math.cos(this.circlePosRadians) * radius;
+		this.y = this.centerY + Math.sin(this.circlePosRadians) * radius;
 
 		for (var i = 0; i < enemies.length; i++) {
 			if (Math.abs(this.x - enemies[i].x) < 20 && Math.abs(this.y - enemies[i].y) < 20) {
@@ -125,10 +125,10 @@ function rotatingProjectile(source, radius) {
 					this.removeFromProjectilesArray();
 				}
 			}
-		} 
+		}
 	}
 
-	this.draw = function() {
+	this.draw = function () {
 		drawImageRotatedScaled(this.pic, this.x, this.y, 0, 1);
 	}
 }
@@ -152,21 +152,21 @@ function spiralingProjectile(source) {
 	}
 	source.projectiles.push(this);
 
-	this.removeFromProjectilesArray = function() {
+	this.removeFromProjectilesArray = function () {
 		warrior.projectiles.remove(this.projectilesArrayIndex, 1);
 	}
 
-	this.move = function() {
+	this.move = function () {
 		var tileKindHere = trackGrid[getIndexFromXY(this.x, this.y)]
 		if ((tileKindHere == TRACK_WALL && !THEME_SETTINGS_ARRAY[currentLevel.theme].wallTransparency) || tileKindHere == TRACK_DOOR) {
 			this.removeFromProjectilesArray();
 		}
-		
+
 		this.centerX = source.x;
 		this.centerY = source.y;
-		this.circlePosRadians += 0.0174533*this.speed; //1 degree
-		this.x = this.centerX + Math.cos(this.circlePosRadians)*this.radius;
-		this.y = this.centerY + Math.sin(this.circlePosRadians)*this.radius;
+		this.circlePosRadians += 0.0174533 * this.speed; //1 degree
+		this.x = this.centerX + Math.cos(this.circlePosRadians) * this.radius;
+		this.y = this.centerY + Math.sin(this.circlePosRadians) * this.radius;
 		this.radius += 0.5; //<-- key to spiral!
 
 		for (var i = 0; i < enemies.length; i++) {
@@ -189,7 +189,7 @@ function spiralingProjectile(source) {
 			this.removeFromProjectilesArray();
 		}
 	}
-	this.draw = function() {
+	this.draw = function () {
 		drawImageRotatedScaled(this.pic, this.x, this.y, this.circlePosRadians, 1);
 	}
 }
@@ -211,13 +211,13 @@ function bouncingProjectile(source, clickX, clickY) {
 	}
 	this.dX = this.clickX - this.x;
 	this.dY = this.clickY - this.y;
-	var dist = Math.sqrt(this.dX*this.dX + this.dY*this.dY);
+	var dist = Math.sqrt(this.dX * this.dX + this.dY * this.dY);
 
 	this.projectilesArrayIndex = source.projectiles.size();
 	this.speed = source.currentSpell.speed;
 	this.range = source.currentSpell.range;
 	this.bouncingRange = this.range;
-	this.damage = source.damage+ source.currentSpell.damage;
+	this.damage = source.damage + source.currentSpell.damage;
 	this.pic = source.currentSpell.pic;
 
 	this.specialAttackFunctions = source.inventory[source.currInv]["weapon"].effectFunctions.concat(source.currentSpell.effectFunctions);
@@ -226,8 +226,8 @@ function bouncingProjectile(source, clickX, clickY) {
 	}
 
 	source.projectiles.push(this);
-	this.setAngle = function() {
-		var tan = this.dY/this.dX;
+	this.setAngle = function () {
+		var tan = this.dY / this.dX;
 		this.angle = Math.atan(tan);
 
 		if (this.clickX < this.x) {
@@ -237,12 +237,12 @@ function bouncingProjectile(source, clickX, clickY) {
 	this.setAngle();
 	this.mostRecentEnemy = null;
 
-	this.removeFromProjectilesArray = function() {
+	this.removeFromProjectilesArray = function () {
 		warrior.projectiles.remove(this.projectilesArrayIndex, 1);
 	}
 
-	this.setAngle = function() {
-		var tan = this.dY/this.dX;
+	this.setAngle = function () {
+		var tan = this.dY / this.dX;
 		this.angle = Math.atan(tan);
 
 		if (this.clickX < this.x) {
@@ -250,16 +250,16 @@ function bouncingProjectile(source, clickX, clickY) {
 		}
 	}
 
-	this.findNewTarget = function(fromEnemy) {
+	this.findNewTarget = function (fromEnemy) {
 		var bouncingX = this.bouncingRange;
 		var bouncingY = this.bouncingRange;
-		var bestDistFound = Math.sqrt(bouncingX*bouncingX + bouncingY+bouncingY)+1;
+		var bestDistFound = Math.sqrt(bouncingX * bouncingX + bouncingY + bouncingY) + 1;
 		var closestEnemyFound = null;
 		for (var i = 0; i < enemies.length; i++) {
-			if (enemies[i].alive && enemies[i] != fromEnemy && isAdjacent(fromEnemy, enemies[i], Math.floor(this.bouncingRange/TRACK_W))) {
-				var dX = Math.abs(fromEnemy.x-enemies[i].x);
-				var dY = Math.abs(fromEnemy.y-enemies[i].y)
-				var distToEnemy = Math.sqrt(dX*dX + dY*dY);
+			if (enemies[i].alive && enemies[i] != fromEnemy && isAdjacent(fromEnemy, enemies[i], Math.floor(this.bouncingRange / TRACK_W))) {
+				var dX = Math.abs(fromEnemy.x - enemies[i].x);
+				var dY = Math.abs(fromEnemy.y - enemies[i].y)
+				var distToEnemy = Math.sqrt(dX * dX + dY * dY);
 				if (distToEnemy < bestDistFound) {
 					bestDistFound = distToEnemy;
 					closestEnemyFound = enemies[i];
@@ -270,19 +270,19 @@ function bouncingProjectile(source, clickX, clickY) {
 		return closestEnemyFound;
 	}
 
-	this.move = function() {
+	this.move = function () {
 		var tileKindHere = trackGrid[getIndexFromXY(this.x, this.y)]
 		if ((tileKindHere == TRACK_WALL && !THEME_SETTINGS_ARRAY[currentLevel.theme].wallTransparency) || tileKindHere == TRACK_DOOR) {
 			this.removeFromProjectilesArray();
 		}
-		
-		var moveX = this.speed * this.dX/dist;
-		var moveY = this.speed * this.dY/dist;
-		var totalMoved = Math.sqrt(moveX*moveX + moveY*moveY)
 
-		this.x += this.speed * this.dX/dist;
-		this.y += this.speed * this.dY/dist;
-		
+		var moveX = this.speed * this.dX / dist;
+		var moveY = this.speed * this.dY / dist;
+		var totalMoved = Math.sqrt(moveX * moveX + moveY * moveY)
+
+		this.x += this.speed * this.dX / dist;
+		this.y += this.speed * this.dY / dist;
+
 		this.range -= totalMoved;
 
 		for (var i = 0; i < enemies.length; i++) {
@@ -310,17 +310,17 @@ function bouncingProjectile(source, clickX, clickY) {
 				this.clickX = nextEnemy.x; //for finding angle
 				this.dX = nextEnemy.x - this.x;
 				this.dY = nextEnemy.y - this.y;
-				dist = Math.sqrt(this.dX*this.dX + this.dY*this.dY);
+				dist = Math.sqrt(this.dX * this.dX + this.dY * this.dY);
 				this.numBounces--;
 				this.setAngle();
 			}
-		} 
+		}
 		if (this.range <= 0) {
 			this.removeFromProjectilesArray();
 		}
 	}
 
-	this.draw = function() {
+	this.draw = function () {
 		drawImageRotatedScaled(this.pic, this.x, this.y, this.angle, 1);
 	}
 }
@@ -340,7 +340,7 @@ function meteorProjectile(source, clickX, clickY) {
 	}
 	this.dX = this.clickX - this.x;
 	this.dY = this.clickY - this.y;
-	var dist = Math.sqrt(this.dX*this.dX + this.dY*this.dY);
+	var dist = Math.sqrt(this.dX * this.dX + this.dY * this.dY);
 
 	this.projectilesArrayIndex = source.projectiles.size();
 	this.speed = source.currentSpell.speed;
@@ -348,7 +348,7 @@ function meteorProjectile(source, clickX, clickY) {
 	this.damage = source.damage + source.currentSpell.damage;
 	this.pic = source.currentSpell.pic;
 
-	var tan = this.dY/this.dX;
+	var tan = this.dY / this.dX;
 	this.angle = Math.atan(tan);
 
 	if (this.clickX < this.x) {
@@ -362,18 +362,18 @@ function meteorProjectile(source, clickX, clickY) {
 
 	source.projectiles.push(this);
 
-	this.removeFromProjectilesArray = function() {
+	this.removeFromProjectilesArray = function () {
 		warrior.projectiles.remove(this.projectilesArrayIndex, 1);
 	}
 
-	this.move = function() {
-		var moveX = this.speed * this.dX/dist;
-		var moveY = this.speed * this.dY/dist;
-		var totalMoved = Math.sqrt(moveX*moveX + moveY*moveY)
+	this.move = function () {
+		var moveX = this.speed * this.dX / dist;
+		var moveY = this.speed * this.dY / dist;
+		var totalMoved = Math.sqrt(moveX * moveX + moveY * moveY)
 
-		this.x += this.speed * this.dX/dist;
-		this.y += this.speed * this.dY/dist;
-		
+		this.x += this.speed * this.dX / dist;
+		this.y += this.speed * this.dY / dist;
+
 		this.range -= totalMoved;
 
 		for (var i = 0; i < enemies.length; i++) {
@@ -391,13 +391,13 @@ function meteorProjectile(source, clickX, clickY) {
 					this.removeFromProjectilesArray();
 				}
 			}
-		} 
+		}
 		if (this.range <= 0) {
 			this.removeFromProjectilesArray();
 		}
 	}
 
-	this.draw = function() {
+	this.draw = function () {
 		drawImageRotatedScaled(this.pic, this.x, this.y, this.angle, 1);
 	}
 }
